@@ -1,1 +1,79 @@
-\chapter{Soluci\'on de ecuaciones algebraicas }
+\chapter{Soluci\'on de ecuaciones algebraicas}
+
+
+Hay ocaciones en las que ecuaciones algebraicas tienen una dificil soluci\'on anal\'itica y en esas cituaciones recurrimos a los m\'etodos num\'ericos que ser\'an descritos en este cap\'itulo, hablaremos de m\'etodos tanto abiertos como cerrados, ventajas y desventajas de los mismos. 
+
+\section{M\'etodos cerrados}
+Tambi\'en llamados metodos de encierro, se basan en limitar con un intervaloque se va recortando hasta que se acerca a la soluci\'on.
+
+\subsection{Bisecci\'on}
+Es un algoritmo de b\'usqueda de ra\'ices que trabaja dividiendo el intervalo a la mitad y seccionando el subintervalo que tiene la ra\'iz, y es posible describirlo en los siguientes pasos.\\
+\begin{enumerate}
+\item Se eligen los valores limitantes $a$,  $b$ tales que \\$f(a)f(b)\textless0$.
+\item aproximamos la soluci\'on con la formula del punto medio\\$c=\frac{a+b}{2}$
+\end{enumerate}
+%-----Gráfica del método de bisección-----%
+%------Algoritmo de bisección-------%
+\subsection{M\'etodo de falsa posici\'on o regula fals}
+Para localizar el punto $c$, se busca la ecuaci\'on de una recta que pasa por los dos puntos de la funci''on lo que se obtiene es una ra\'iz falsa con una recta el presedimiento se muestra descrito en el siguiente algoritmo.
+%----Gráfica del metodo regula fals----%
+%-------Algoritmo de falsa posicón-------% 
+
+\section{M\'etodos abiertos}
+Son m\'etodos en los que solo necesitamos un valor inicial al que llamamos $x_0$ y son capaces de encontrar ra\'ices tangentes al eje x.
+
+\subsection{M\'etodo de Newton-Raphson}
+Consiste en sacas la ecuaci\'on de las tangentes de la funci\'on.
+\begin{gather}
+y-f(x_o)=f'(x_o)(x-x_0) \\
+x_1=x_o-\frac{f(x_1)}{f'(x_1)} \\
+x_2=x_1-\frac{f(x_1)}{f'(x_1)} \\
+\boxed{x_{k+1}=x_k-\frac{f(x_k)}{f'(x_k)}}
+\end{gather}
+%Gráfica del método de Newton Raphson%
+\subsubsection*{C\'alculo de error}
+
+\subsection{M\'etodo Secante}
+Se trata de un m\'etodo donde se traza una recta secante entro los \'ultimos 2 puntos. Se utilizan derivadas centrales para m\'as precisi\'on y el costo computacional sea menor.
+\begin{gather}
+\nonumber(x_k,f(x_k+1)) \qquad (x_k,f(x_k))\\
+y-f(x_k)=\frac{f(x_k)-f(x_{k-1})}{x_k-x_{k-1}}\\
+\boxed{x_{k+1}=x_k-\frac{f(x_k)}{\frac{f(x_k)-f(x_{k-1})}{x_k-x_{k-1}}}}
+\end{gather}
+%----Grafica de Método de secante y código----%
+\section*{Backtracking}
+Es un m\'etodo de b\'usqueda de soluciones exhaustiva sobre grafos dirigidos a ciclos, el cual se acelera mediante poda de ramas poco prometedoras. Es decir se trata de buscar estados soluci\'on del problema. \\
+\\
+Las condiciones de partida son:
+\begin{enumerate}
+\item Alcanza la soluci\'on
+\item Se alcanzan todos los estados sde soluci\'on
+\end{enumerate}
+
+
+\section*{Resumen del c\'apitulo}
+Los m\'etodos aqu\'i mostrados son utilizadon para encontrar ra\'ices de funciones y todos llevan al mismo resultado, la gran diferencia esta en el tiempo de computo utilizado para el resultado y la presici\'on de este.\\
+\\
+\subsection*{Velocidad de convergencia}
+La velocida de convergencia que hace referencia al timepo que tarda el ordenador en arrojar un resultado, se muestra en seguida para m\'etodos cerrados y abiertos 
+\\
+\begin{center}
+\begin{tabular}{	c		c	}
+M\'etodos & Velocidad de convergencia \\
+Bisecci\'on & Lineal [Lento] \\
+Falsa posici\'on & Lineal y super lineal \\
+Newton-Raphson & Cuadr\'atica [R\'apido] \\
+Secante & Cuadr\'atica [R\'apido] \\
+\end{tabular}
+\end{center}
+
+\subsection*{Iteraciones con y sin backtraking en metodos abiertos}
+Si el algoritmo converge en $k$ iteraciones :
+\begin{center}
+\begin{tabular}{	c		c	}
+Newton-Raphson & $2k_1$ \\
+Secante & $k_2+1$ \\
+Newton-Raphson con B. & $2k_3+Nb_1$ \\
+Secante con B. & $k_4+1+Nb_2$
+\end{tabular}
+\end{center}
