@@ -1,0 +1,233 @@
+\chapter{Soluci\'on de ecuaciones algebraicas}
+
+
+Hay ocaciones en las que ecuaciones algebraicas tienen una dificil soluci\'on anal\'itica y en esas cituaciones recurrimos a los m\'etodos num\'ericos que ser\'an descritos en este cap\'itulo, hablaremos de m\'etodos tanto abiertos como cerrados, ventajas y desventajas de los mismos. 
+
+\section{M\'etodos cerrados}
+Tambi\'en llamados metodos de encierro, se basan en limitar con un intervaloque se va recortando hasta que se acerca a la soluci\'on.
+
+\subsection{Bisecci\'on}
+Es un algoritmo de b\'usqueda de ra\'ices que trabaja dividiendo el intervalo a la mitad y seccionando el subintervalo que tiene la ra\'iz, y es posible describirlo en los siguientes pasos.\\
+\begin{enumerate}
+\item Se eligen los valores limitantes $a$,  $b$ tales que \\$f(a)f(b)\textless0$.
+\item aproximamos la soluci\'on con la formula del punto medio\\$c=\frac{a+b}{2}$
+\end{enumerate}
+%-----Gráfica del método de bisección-----%
+%------Algoritmo de bisección-------%
+\subsection{M\'etodo de falsa posici\'on o regula fals}
+Para localizar el punto $c$, se busca la ecuaci\'on de una recta que pasa por los dos puntos de la funci''on lo que se obtiene es una ra\'iz falsa con una recta el presedimiento se muestra descrito en el siguiente algoritmo.
+%----Gráfica del metodo regula fals----%
+%-------Algoritmo de falsa posicón-------% 
+
+\section{M\'etodos abiertos}
+Son m\'etodos en los que solo necesitamos un valor inicial al que llamamos $x_0$ y son capaces de encontrar ra\'ices tangentes al eje x.
+
+\subsection{M\'etodo de Newton-Raphson}
+Consiste en sacas la ecuaci\'on de las tangentes de la funci\'on.
+\begin{gather}
+y-f(x_o)=f'(x_o)(x-x_0) \\
+x_1=x_o-\frac{f(x_1)}{f'(x_1)} \\
+x_2=x_1-\frac{f(x_1)}{f'(x_1)} \\
+\boxed{x_{k+1}=x_k-\frac{f(x_k)}{f'(x_k)}}
+\end{gather}
+%Gráfica del método de Newton Raphson%
+\subsubsection*{C\'alculo de error}
+
+\subsection{M\'etodo Secante}
+Se trata de un m\'etodo donde se traza una recta secante entro los \'ultimos 2 puntos. Se utilizan derivadas centrales para m\'as precisi\'on y el costo computacional sea menor.
+\begin{gather}
+\nonumber(x_k,f(x_k+1)) \qquad (x_k,f(x_k))\\
+y-f(x_k)=\frac{f(x_k)-f(x_{k-1})}{x_k-x_{k-1}}\\
+\boxed{x_{k+1}=x_k-\frac{f(x_k)}{\frac{f(x_k)-f(x_{k-1})}{x_k-x_{k-1}}}}
+\end{gather}
+%----Grafica de Método de secante y código----%
+\section*{Backtracking}
+Es un m\'etodo de b\'usqueda de soluciones exhaustiva sobre grafos dirigidos a ciclos, el cual se acelera mediante poda de ramas poco prometedoras. Es decir se trata de buscar estados soluci\'on del problema. \\
+\\
+Las condiciones de partida son:
+\begin{enumerate}
+\item Alcanza la soluci\'on
+\item Se alcanzan todos los estados sde soluci\'on
+\end{enumerate}
+
+
+\section*{Resumen del c\'apitulo}
+Los m\'etodos aqu\'i mostrados son utilizadon para encontrar ra\'ices de funciones y todos llevan al mismo resultado, la gran diferencia esta en el tiempo de computo utilizado para el resultado y la presici\'on de este.\\
+\\
+\subsection*{Velocidad de convergencia}
+La velocida de convergencia que hace referencia al timepo que tarda el ordenador en arrojar un resultado, se muestra en seguida para m\'etodos cerrados y abiertos 
+\\
+\begin{center}
+\begin{tabular}{	c		c	}
+M\'etodos & Velocidad de convergencia \\
+Bisecci\'on & Lineal [Lento] \\
+Falsa posici\'on & Lineal y super lineal \\
+Newton-Raphson & Cuadr\'atica [R\'apido] \\
+Secante & Cuadr\'atica [R\'apido] \\
+\end{tabular}
+\end{center}
+
+\subsection*{Iteraciones con y sin backtraking en metodos abiertos}
+Si el algoritmo converge en $k$ iteraciones :
+\begin{center}
+\begin{tabular}{	c		c	}
+Newton-Raphson & $2k_1$ \\
+Secante & $k_2+1$ \\
+Newton-Raphson con B. & $2k_3+Nb_1$ \\
+Secante con B. & $k_4+1+Nb_2$
+\end{tabular}
+\end{center}
+
+\chapter{Soluci\'on de sistemas de ecuaciones}
+El objetivo de estos m\'etodos es encontrar un vector soluci\'on para una matriz dada partiendo de la ecuaci\'on $Ax=b$. En este cap\'itulo se describir\'an m\'etodos directos y m\'etodos iterativos. Y lo primero es recordar algunas operaciones y propiedades b\'asicas de las matrices vistas en \'Algebra lineal. 
+
+\section{Operaciones algebr\'aicas con matrices}
+\subsection{Suma de matrices}
+Es posible sumar dos matrces siempre y cuado sean del mismo tamaño haciendo una adici\'on de sus elementos correspondientes.\\
+S\'i $A=[a_{ij}]$ y $B=[b_{ij}]$ son matrices del mismo tamaño $m \times n$, entonces su suma es la matriz de tamaño $m \times $. \\
+\begin{center}
+$A+B=[a_{ij}+b_{ij}]$
+\end{center}
+\subsection{Multiplicaci\'on por un escalar}
+Si $A=[a_{ij}$es una matriz de tamaño $m \times n$ y $c$ es un escalar, entonces el multiplo escalar de $A$ por $c$ es la matriz de tamaño $m \times n$ dada por:
+\begin{center}
+$cA=[ca_{ij}]$
+\end{center}  
+\subsection{Multiplicaci\'on de matrices}
+Si $A=[a_{ij}]$ es una matriz de $m \times n$ y $B=[b_{ij}]$ es una matriz de $m \times p$, entonces el producto $AB$ es una matriz de $m \times p$
+\begin{center}
+Sea $A=\begin{bmatrix}
+a_{11} & a_{12}\\
+a_{21} & a_{22}\\
+a_{31} & a_{32}
+\end{bmatrix}$ y $B=\begin{bmatrix}
+b_{11} & b_{12}\\
+b_{21} & b_{22}
+\end{bmatrix}$ entonces \bigskip \bigskip .
+$AB=\begin{bmatrix}
+a_{11} & a_{12}\\
+a_{21} & a_{22}\\
+a_{31} & a_{32}
+\end{bmatrix}
+\begin{bmatrix}
+b_{11} & b_{12}\\
+b_{21} & b_{22}
+\end{bmatrix}=
+\begin{bmatrix}
+a_{11}b_{11}+a_{12}b_{21} & a_{11}b_{12}+a_{12}b_{22}\\
+a_{21}b_{11}+a_{22}b_{21} & a_{21}b_{12}+a_{22}b_{22}\\
+a_{31}b_{11}+a_{32}b_{21} & a_{31}b_{12}+a_{32}b_{22}
+\end{bmatrix}$
+\end{center}
+\subsection{Transpuesta de una matriz}
+La transpuesta de una matriz se forma al escribir sus columnas como renglones. Por ejemplo, si $A$ es la matriz de $m \times n$ dada por:
+\begin{center}
+$A=\begin{bmatrix}a_{11} & a_{12} & a_{13} & \cdots &a_{1n} \\ a_{21} & a_{22} & a_{23} & \cdots & a_{2n}\\ a_{31} & a_{32} & a_{33} & \cdots & a_{3n} \\
+\vdots & \vdots & \vdots & \ddots & \vdots\\
+a_{m1} & a_{m2} & a_{m3} & \cdots & a_{mn}
+\end{bmatrix}$; \bigskip 
+ $A^T=\begin{bmatrix}a_{11} & a_{21} & a_{31} & \cdots &a_{m1} \\ a_{12} & a_{22} & a_{32} & \cdots & a_{m2}\\ a_{13} & a_{23} & a_{33} & \cdots & a_{m3} \\
+\vdots & \vdots & \vdots & \ddots & \vdots\\
+a_{1n} & a_{2n} & a_{3n} & \cdots & a_{mn}
+\end{bmatrix}$
+\end{center}
+\subsection{Matriz sim\'etrica}
+Una m\'atriz $A$ es simetrica si $A=A^T$. Partiendo de esta definici\'on, es evidente que una matriz sim\'etrica debe ser cuadrada. Existen cuatro importantes propiedades de matrices simetricas las cuales son:
+\begin{enumerate}
+\item $(A^T)^T=A$
+\item $(A+B)^T=A^T+B^T$
+\item $(cA)^T=c(A)^T$
+\item $(AB)^T=B^TA^T$
+\end{enumerate}
+\subsection{Inversa de una matriz}
+Una matriz $A$ de $n \times n$ es invertible (o no singular) si existe una matriz $B$ de $n \times n$ tal que $AB=BA=I$, donde $I$ es la matriz identidad de orden n. La matriz $B$ se denomino inversa (multiplicativa) de $A$.\\
+Las matrices no cuadradas no tienen inversa.\\
+Si A es una matriz invertible, entonces su inversa es \'unica y se denota por $A^{-1}$.
+\begin{center}
+$AX=I \quad$ Donde $X$ es la matriz inversa.
+\end{center}
+\subsection{Determinante de una matriz}
+El determinante de una matriz est\'a dado por
+\begin{center}
+$A=\begin{bmatrix}a_{11} & a_{12}\\ a_{21} & a_{22} \end{bmatrix} ; \quad det(A)=|A|=a_{11}a_{22}-a_{21}a_{12}$
+\end{center}
+El determinante es la diferencia de los products de dos diagonales de la matriz. Si $A$ es una matriz triangular de orden $n$, su determinante es el producto de los elementos en la diagonal principal, $det(A)=|A|=a_{11}a_{22}a_{33}\cdots a_{nm}$
+\section{Descomposici\'on matricial}
+La descomposici\'on matricial es una forma de factorizaci\'on de matrices en distintas formas para diferentes propositos y resultados. Las principales descomposiciones son descritas a continuaci\'on 
+\subsection{Matriz triangular inferior}
+Una matriz con una trangulaci\'on inferior la podemos obtener de como producto de la siguiente formula.
+\begin{displaymath}
+\nonumber x_i=\frac{b_i-\sum_{k=1}^{i-1}a_{ik}x_k}{a_{ii}} 
+\end{displaymath}
+\begin{center}
+$\begin{bmatrix} a_{11} & 0 & 0 & 0 \\
+				 a_{21} & a_{22} & 0 & 0 \\
+				 a_{31} & a_{32} & a_{33} & 0 \\
+				 a_{41} & a_{42} & a_{43} & a_{44}
+\end{bmatrix}\begin{bmatrix} x_1 \\
+							 x_2 \\
+							 x_3 \\
+							 x_4 \\
+\end{bmatrix} = \begin{bmatrix} b_1 \\
+							   b_2 \\
+							   b_3 \\
+							   b_4 
+\end{bmatrix}$
+\end{center}
+\subsection{Matriz triangular superior}
+El contrario de la matris triangular inferior, esta la matriz triangular superior.
+\begin{displaymath}
+\nonumber x_i=\frac{b_i-\sum_{k=i+1}^{n}a_{ik}x_k}{a_{ii}} 
+\end{displaymath}
+\begin{center}
+$\begin{bmatrix} a_{11} & a_{12} & a_{13} & a_{14} \\
+				 0 & a_{22} & a_{23} & a_{24} \\
+				 0 & 0 & a_{33} & a_{34} \\
+				 0 & 0 & 0 & a_{44}
+\end{bmatrix}\begin{bmatrix} x_1 \\
+							 x_2 \\
+							 x_3 \\
+							 x_4 \\
+\end{bmatrix} = \begin{bmatrix} b_1 \\
+							   b_2 \\
+							   b_3 \\
+							   b_4 
+\end{bmatrix}$
+\end{center}
+\section{M\'etodos directos}
+Los m\'etodos directos se encargan de transforman el sistema original en otro equivalente y f\'acil de reolver.
+\subsection{Eliminaci\'on Gaussiana}
+\subsection{Factorizaci\'on LU}
+\begin{center} $LU \qquad A=LU$ \end{center}
+\begin{center} $\begin{bmatrix}
+			      a_{11} & a_{12} & a_{13} & a_{14}\\
+			      a_{21} & a_{22} & a_{23} & a_{24}\\
+			      a_{31} & a_{32} & a_{33} & a_{34}\\
+			      a_{41} & a_{42} & a_{43} & a_{44}
+			      
+\end{bmatrix}= \begin{bmatrix}
+			       1 & 0 & 0 & 0\\
+			      l_{21} & 1 & 0 & 0\\
+			      l_{31} & l_{32} & 1 & 0\\
+			      l_{41} & l_{42} & l_{43} & 1
+\end{bmatrix} \begin{bmatrix}
+                  u_{11} & u_{12} & u_{13} & u_{14}\\
+			      0 & u_{22} & u_{23} & u_{24}\\
+			      0 & 0 & u_{33} & u_{34}\\
+			      0 & 0 & 0 & u_{44}
+\end{bmatrix} $
+\end{center}
+\subsubsection{Doolittle}
+La condici\'on para esta factorizaci\'on es:
+\begin{center}
+$l_{ii}=1$
+\end{center}
+\subsubsection{Crout}
+Mientras que para la factorizaci\'on de Crout es:
+\begin{center}
+$u_{ii}=1$
+\end{center} 
+\subsection{Factorizaci\'on LLT Cholesky}
+\subsection{Factorizaci\'on LDLT}
+\section{M\'etodos iterativos }
+Estos m\'etodos parten de un vector inicial $x^o$, y la modificaci\'on medianre un esquema repetitivo de c\'alculo hasta llegar a la soluci\'on buscada
