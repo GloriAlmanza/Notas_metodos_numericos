@@ -4,3 +4,4 @@
 *.log
 /**/*.log
 **/*.log
+/Archivo_maestro.pdf
