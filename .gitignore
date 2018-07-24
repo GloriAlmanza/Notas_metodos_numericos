@@ -1,7 +1,6 @@
 *.aux
-/**/*.aux
-**/*.aux
 *.log
-/**/*.log
-**/*.log
+
+
 /Archivo_maestro.pdf
+*.synctex.gz
