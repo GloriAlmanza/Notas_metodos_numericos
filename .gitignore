@@ -1,6 +1,4 @@
 *.aux
 *.log
-
-
 /Archivo_maestro.pdf
 *.synctex.gz
