@@ -227,10 +227,28 @@ Mientras que para la factorizaci\'on de Crout es:
 \begin{center}
 $u_{ii}=1$
 \end{center} 
+\subsubsection{Resultados}
+\begin{multicols}{2}
+$a_{11}=u_{11}$ \\
+$a_{12}=u_{12}$ \\
+$a_{13}=u_{13}$ \\
+$a_{14}=u_{14}$ \\
+$a_{21}=l_{21}u_{11}$ \\
+$l_{21}=\frac{a_{21}}{u_{11}}$ \\
+$u_{22}=l_{21}u_{12}+u_{22}$ \\
+$a_{23}=a_{22}-l_{21}u_{12}$ \\
+$u_{23}=l_{21}u_{13}+u_{23}$ \\
+$a_{31}=l_{31}u_{11}$ \\
+$l_{31}=\frac{a_{31}}{u_{11}}$ \\
+$a_{32}=l_{31}u_{12}+l_{32}u_{22}$ \\
+$l_{32}=a_{32}-\frac{l_{31}u_{12}}{u_{22}}$ \\
+$a_{33}=l_{31}u_{13}+l_{32}u_{23}+u_{33}$ \\
+$u_{33}=a_{33}-(l_{31}u_{13}+l_{32}u_{23})$ \\
+$a_{43}=l_{41}u_{13}+l_{42}u_{23}+l_{43}u_{33}$ \\
+$l_{43}=\frac{a_{43}-(l_{41}u_{13}+l_{42}u_{23})}{u_{33}}$ \\
+$a_{44}=l_{41}u_{14}+l_{42}u_{24}+l_{43}u_{34})$ \\
+\end{multicols}
 \subsection{Factorizaci\'on LLT Cholesky}
 \subsection{Factorizaci\'on LDLT}
 \section{M\'etodos iterativos }
 Estos m\'etodos parten de un vector inicial $x^o$, y la modificaci\'on medianre un esquema repetitivo de c\'alculo hasta llegar a la soluci\'on buscada
-
-%Solo estoy aprendiendo a usar GitHubDeskop
-%Otro cambio
