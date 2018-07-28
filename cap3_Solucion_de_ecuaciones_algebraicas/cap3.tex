@@ -222,11 +222,17 @@ La condici\'on para esta factorizaci\'on es:
 \begin{center}
 $l_{ii}=1$
 \end{center}
+\begin{displaymath}
+L_{ij}=\frac{a_{ij}-\sum_{k=1}^{j-1}l_{ik}u_{kj}}{u_{jj}} \qquad U_{ij}=a_{ij}-\sum_{k=1}^{i-1}l_{ik}u_{kj}
+\end{displaymath}
 \subsubsection{Crout}
 Mientras que para la factorizaci\'on de Crout es:
 \begin{center}
 $u_{ii}=1$
 \end{center} 
+\begin{displaymath}
+L_{ij}=a_{ij}-\sum_{k=1}^{j-1}L_{ik}U_{kj} \qquad U_{ij}=\frac{a_{ij}-\sum_{k=1}^{j-1}L_{ik}U_{kj}}{L_{ii}}
+\end{displaymath}
 \subsubsection{Resultados}
 \begin{multicols}{2}
 $a_{11}=u_{11}$ \\
@@ -248,7 +254,40 @@ $a_{43}=l_{41}u_{13}+l_{42}u_{23}+l_{43}u_{33}$ \\
 $l_{43}=\frac{a_{43}-(l_{41}u_{13}+l_{42}u_{23})}{u_{33}}$ \\
 $a_{44}=l_{41}u_{14}+l_{42}u_{24}+l_{43}u_{34})$ \\
 \end{multicols}
+\subsection*{A es simetrica}
+$\begin{bmatrix}
+a_{11} & a_{12} & a_{13} & a_{14} \\
+a_{21} & a_{22} & a_{23} & a_{24} \\
+a_{31} & a_{32} & a_{33} & a_{34} \\
+a_{41} & a_{42} & a_{43} & a_{44} 
+\end{bmatrix}=\begin{bmatrix}
+l_{11} & 0 & 0 & 0 \\
+l_{21} & l_{22} & 0 & 0 \\
+l_{31} & l_{32} & l_{33} & 0 \\
+l_{41} & l_{42} & l_{43} & l_{44} 
+\end{bmatrix}\begin{bmatrix}
+l_{11} & l_{12} & l_{13} & l_{14} \\
+0 & l_{22} & l_{23} & l_{24} \\
+0 & 0 & l_{33} & l_{34} \\
+0 & 0 & 0 & l_{44} 
+\end{bmatrix} $
+\subsection*{Resultados}
+\begin{center}
+$a_{11}=l_{11}^2 \qquad l_{11}=\sqrt{a_{11}}$\\
+$a_{43}=a_{34}=l_{31}l_{41}+l_{32}l_{42}+l_{33}l_{43}$\\
+$l_{43}=\frac{a_{43}-(l_{31}l_{41}+l_{32}l_{42})}{l_{33}}$ \\
+$a_{44}=l_{41}^2+l_{42}^2+l_{43}^2+l_{43}^2+l_{44}^2$ \\
+$ $ \\
+\end{center}
+Los m\'etodos que acontinuación se mencionan, son m\'etodos que como condici\'on tienen que la matriz para resolver, debe ser sim\'etrica.
 \subsection{Factorizaci\'on LLT Cholesky}
+\begin{center}
+$ A=LL^T$
+\end{center}
+La factorizaci\'on de Cholesky ade mas de requerir una matriz simetrica, debe ser definida positiva y cabe mensionar que este m\'etodo tiene una soluci\'on unica.
 \subsection{Factorizaci\'on LDLT}
+\begin{center}
+$ A=LLD^T $
+\end{center}
 \section{M\'etodos iterativos }
 Estos m\'etodos parten de un vector inicial $x^o$, y la modificaci\'on medianre un esquema repetitivo de c\'alculo hasta llegar a la soluci\'on buscada
