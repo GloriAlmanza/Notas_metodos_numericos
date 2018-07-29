@@ -312,7 +312,11 @@ d_{11} & d_{12} & d_{13} & d_{14} \\
 0 & 0 & 1 & l_{34} \\
 0 & 0 & 0 & 1
 \end{bmatrix}
-$\end{center}
+$\end{center}}
+\subsection*{Resultados}
+$a_{34}=a_{43}=a_{11}l_{41}l_{31}+d_{22}l_{42}l_{32}+d_{33}l_{43}$ \\
+$l_{43}=\frac{a_{43}-(d_{11}l_{41}l_{31}+d_{22}l_{42}l_{32})}{d_{33}}$ \\
+$a_{44}=d_{11}l_{41}^2+d_{22}l_{42}^2+d_{33}l_{43}^2+d_{44}-(d_{11}l_{41}^2+d_{22}l_{42}^2+d_{33}l_{43}^2)$ \\
 \subsection{Factorizaci\'on LLT Cholesky}
 \begin{center}
 $ A=LL^T$
@@ -329,6 +333,9 @@ $L_{ij}=L^T_{ji}=\frac{a_{ij}+\sum_{k=1}^{j-1}l_{ik}l_{jk}}{l_{jj}}$
 \subsection{Factorizaci\'on LDLT}
 \begin{center}
 $ A=LLD^T $
+\end{center}
+\begin{center}
+$L_{ij}=\frac{a_{ij}-\sum_{k=1}^{j-1}d_{kk}l_{ik}l_{jk}}{d_{jj}} \qquad d_{ii}=a_{ii}-\sum_{k=1}^{i-1}d_{kk}l_{ik}^2$
 \end{center}
 \section{M\'etodos iterativos }
 Estos m\'etodos parten de un vector inicial $x^o$, y la modificaci\'on medianre un esquema repetitivo de c\'alculo hasta llegar a la soluci\'on buscada
