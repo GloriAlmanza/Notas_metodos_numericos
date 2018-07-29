@@ -338,4 +338,60 @@ $ A=LLD^T $
 $L_{ij}=\frac{a_{ij}-\sum_{k=1}^{j-1}d_{kk}l_{ik}l_{jk}}{d_{jj}} \qquad d_{ii}=a_{ii}-\sum_{k=1}^{i-1}d_{kk}l_{ik}^2$
 \end{center}
 \section{M\'etodos iterativos }
+\begin{center}
+$Ax=b=f(x)=0$
+\end{center}
 Estos m\'etodos parten de un vector inicial $x^o$, y la modificaci\'on medianre un esquema repetitivo de c\'alculo hasta llegar a la soluci\'on buscada
+\subsection{M\'etodo de punto fijo}
+\begin{center}
+$f(x)=0\qquad \rightarrow \qquad g(x)=x$ \\
+$x_0$ \\
+$x_1=g(x_0)$ \\
+$\vdots$ \\
+$x_{k+1}=g(x_k)$
+\end{center}
+Este m\'etodo consiste en separar un sistema lineal y distribuir para tener m\'as valores de "$x$".
+\begin{center}
+$A=(L+D+U)$
+\end{center}
+D\'onde $D$ es una matriz diagonal y las matrices $L$ y $U$ son triangulares.
+\begin{center}
+$(L+D+U)x=b$ \\
+$(L+U)x+Dx=b$ \\
+$D^{-1}[Dx=b-(L+U)x]$ \\
+$x=D^{-1}[b-(L+U)x]$ \\
+\end{center}
+\subsection{M\'etodo de Jacobi}
+Es un m\'etodo sencible al orden en que se encuentran acomodadas las ecuaciones. Remplaza el vector hasta que est\'a completo y se necesita que converja r\'apido para poder comparar el rendimiento con un m\'erodo directo.
+\begin{center}
+$x^o$ \end{center}
+\begin{center}$x^{k+1}=D^{-1}[b-(L+U)x^k]$\end{center}
+\begin{center}$\begin{bmatrix}
+x_1 \\ x_2 \\ x_3 \\ x_4 
+\end{bmatrix}^{k+1}=\left(\begin{bmatrix}
+\frac{1}{a_{11}} & 0 & 0 & 0 \\
+0 & \frac{1}{a_{22}} & 0 & 0 \\
+0 & 0 & \frac{1}{a_{33}} & 0 \\
+0 & 0 & 0 & \frac{1}{a_{44}}
+\end{bmatrix}\begin{bmatrix}
+b_1 \\ b_2 \\ b_3 \\ b_4
+\end{bmatrix}-\begin{bmatrix}
+0 & a_{12} & a_{13} & a_{14} \\
+a_{21} & 0 & a_{23} & a_{24} \\
+a_{31} & a_{32} & 0 & a_{34} \\
+a_{41} & a_{42} & a_{43} & 0
+\end{bmatrix}^k\right)$
+\end{center}
+\begin{displaymath}
+x_i^{k+1}=\frac{1}{a_{ii}}(b_i\sum_{j=i+1}^{i-1}a_{ij}k_j^k-\sum _{j=i+1}^na_{ij}x_j^k)
+\end{displaymath}
+\\
+\begin{displaymath}
+\frac{\parallel x^{k+1}-x^k \parallel}{max(\parallel x^{k+1} \parallel, \parallel x^k \parallel)}>e_1
+\end{displaymath}
+\subsubsection*{Condici\'on de convergencia}
+Es necesario que la matriz $A$ sea diagonalmente dominante, osea qu\'e, en cada rengl\'on de $A$, se debe cumplir que 
+\begin{displaymath}
+|a_{ii}|\geq \sum_{j=1,j\neq i}^n |a_{ij}| \qquad |a_{ii}|\gg |a_{ij}|
+\end{displaymath}
+%Algoritmo de Jacobi%
