@@ -255,6 +255,9 @@ $l_{43}=\frac{a_{43}-(l_{41}u_{13}+l_{42}u_{23})}{u_{33}}$ \\
 $a_{44}=l_{41}u_{14}+l_{42}u_{24}+l_{43}u_{34})$ \\
 \end{multicols}
 \subsection*{A es simetrica}
+$B^TB$, Ca como resultado una matriz sim\'etica. \\
+$B^TDB$, Siempre da como resultado una matriz sim\'etrica.
+\begin{center}
 $\begin{bmatrix}
 a_{11} & a_{12} & a_{13} & a_{14} \\
 a_{21} & a_{22} & a_{23} & a_{24} \\
@@ -271,20 +274,58 @@ l_{11} & l_{12} & l_{13} & l_{14} \\
 0 & 0 & l_{33} & l_{34} \\
 0 & 0 & 0 & l_{44} 
 \end{bmatrix} $
+\end{center}
 \subsection*{Resultados}
 \begin{center}
 $a_{11}=l_{11}^2 \qquad l_{11}=\sqrt{a_{11}}$\\
 $a_{43}=a_{34}=l_{31}l_{41}+l_{32}l_{42}+l_{33}l_{43}$\\
 $l_{43}=\frac{a_{43}-(l_{31}l_{41}+l_{32}l_{42})}{l_{33}}$ \\
 $a_{44}=l_{41}^2+l_{42}^2+l_{43}^2+l_{43}^2+l_{44}^2$ \\
-$ $ \\
+$l_{44}=\sqrt{a_{44}-l_{41}^2+l_{42}^2+l_{43}} $ \\
 \end{center}
 Los m\'etodos que acontinuación se mencionan, son m\'etodos que como condici\'on tienen que la matriz para resolver, debe ser sim\'etrica.
+\subsection*{A definida positiva}
+Para que una matriz $A$ sea definida positiva si se cumple que $X^TAX>0$ para cualquier vector $X\neq0$
+\begin{center}
+$A=LDL^T$, tiene soluci\'on param\'etrica
+\end{center}
+\begin{center}
+$\begin{bmatrix}
+a_{11} & a_{12} & a_{13} & a_{14} \\
+a_{21} & a_{22} & a_{23} & a_{24} \\
+a_{31} & a_{32} & a_{33} & a_{34} \\
+a_{41} & a_{42} & a_{43} & a_{44} 
+\end{bmatrix}=$ \end{center}\begin{center}
+$\begin{bmatrix}
+1 & 0 & 0 & 0 \\
+l_{21} & 1 & 0 & 0 \\
+l_{31} & l_{32} & 1 & 0 \\
+l_{41} & l_{42} & l_{43} & 1 
+\end{bmatrix} \begin{bmatrix}
+d_{11} & d_{12} & d_{13} & d_{14} \\
+0 & d_{22} & d_{23} & d_{24} \\
+0 & 0 & d_{33} & d_{34} \\
+0 & 0 & 0 & d_{44} 
+\end{bmatrix} \begin{bmatrix}
+1 & l_{12} & l_{13} & l_{14} \\
+0 & 1 & l_{23} & l_{24} \\
+0 & 0 & 1 & l_{34} \\
+0 & 0 & 0 & 1
+\end{bmatrix}
+$\end{center}
 \subsection{Factorizaci\'on LLT Cholesky}
 \begin{center}
 $ A=LL^T$
 \end{center}
-La factorizaci\'on de Cholesky ade mas de requerir una matriz simetrica, debe ser definida positiva y cabe mensionar que este m\'etodo tiene una soluci\'on unica.
+La factorizaci\'on de Cholesky adem\'as de requerir una matriz simetrica, debe ser definida positiva y cabe mensionar que este m\'etodo tiene una soluci\'on \'unica.
+\subsubsection*{Para los que estan en la diagonal}
+\begin{center}
+$L_{ii}=\sqrt{a_{ii}-\sum_{k=1}^{i-1}l_{ik}^2}$
+\subsubsection*{Para los que estan fuera de la diagonal}
+\begin{center}
+$L_{ij}=L^T_{ji}=\frac{a_{ij}+\sum_{k=1}^{j-1}l_{ik}l_{jk}}{l_{jj}}$
+\end{center}
+\end{center}
 \subsection{Factorizaci\'on LDLT}
 \begin{center}
 $ A=LLD^T $
