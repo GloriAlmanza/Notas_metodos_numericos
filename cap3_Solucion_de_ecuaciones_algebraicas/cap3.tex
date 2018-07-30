@@ -398,8 +398,34 @@ Es necesario que la matriz $A$ sea diagonalmente dominante, osea qu\'e, en cada 
 \subsection{M\'etodo de Gauss-Seidel}
 Este es un m\'etodo de convergencia r\'apido. Va reutilizando las mismas "$x$".
 \begin{center}
-$$ \\
-$$ \\
-$$ \\
-$$ 
+$(L+D+U)x=b$ \\
+$(L+D)x^{k+1}=b-Ux^k$ \\
+$D^{-1}(Dx^{k+1}=b-[x^{k+1}-Ux^k)]$ \\
+$x^{k+1}=D^{-1}[b-Lx^{k+1}-Ux^k]$ 
+\end{center}
+\begin{center}$x^{k+1}=D^{-1}[b-(L+U)x^k]$\end{center}
+\begin{center}$\begin{bmatrix}
+x_1 \\ x_2 \\ x_3 \\ x_4 
+\end{bmatrix}^{k+1}=\begin{bmatrix}
+\frac{1}{a_{11}} & 0 & 0 & 0 \\
+0 & \frac{1}{a_{22}} & 0 & 0 \\
+0 & 0 & \frac{1}{a_{33}} & 0 \\
+0 & 0 & 0 & \frac{1}{a_{44}}
+\end{bmatrix}\left(\begin{bmatrix}
+b_1 \\ b_2 \\ b_3 \\ b_4
+\end{bmatrix}-\begin{bmatrix}
+0 & 0 & 0 & 0 \\
+a_{21} & 0 & 0 & 0 \\
+a_{31} & a_{32} & 0 & 0 \\
+a_{41} & a_{42} & a_{43} & 0
+\end{bmatrix}\begin{bmatrix}
+x_1 \\ x_2 \\ x_3 \\ x_4\\
+\end{bmatrix}^{k+1}-\begin{bmatrix}
+0 & a_{12} & a_{13} & a_{14} \\
+0 & 0 & a_{23} & a_{24} \\
+0 & 0 & 0 & a_{34} \\
+0 & 0 & 0 & 0
+\end{bmatrix} \begin{bmatrix}
+x_1 \\ x_2 \\ x_3 \\ x_4
+\end{bmatrix}^k \right)$
 \end{center}
