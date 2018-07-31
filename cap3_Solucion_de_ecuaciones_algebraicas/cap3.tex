@@ -503,4 +503,57 @@ Una funci\'on de dos variables tiene un m\'aximo relativo en $(a,b)$ si $f(x,y)\
 Si lo anterior se cumple para todos los puntos $(x,y)$ en el dominio de $f$, entonces $f$ tiene un m\'aximo absoluto o un m\'aximo absoluto en $(a,b)$\smallskip 
 Teorema\\
 Si $f$ tiene un m\'aximo o un m\'aximo relativo en $(a,b)$ y las derivadas parciales de primer orden existen all\'i, entonces $Fx(a,b)=0$ y $Fy(a,b)=0$.\\
-Un punto $(a,b)$ se llama punto cr\\itico de f
+Un punto $(a,b)$ se llama punto cr\'itico de $f$ si $fx(a,b)=0$ y $fy(a,b=0)$ o si una de estas derivadas parciales no existe.
+
+\section*{Analisis de sensibilidad de los sistemas lineales}
+\begin{displaymath}
+\begin{bmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22}
+\end{bmatrix}\begin{bmatrix}
+x \\ y
+\end{bmatrix}\begin{bmatrix}
+b_1 \\ b_2
+\end{bmatrix}
+\end{displaymath}
+\begin{center}
+$a_{11}x+a_{12}y=b_1$\\
+$\frac{a_{11}}{a_{12}}x+y=\frac{b_1}{b_2}$\\
+$\frac{a_{21}}{a_{22}}x+y=\frac{b}{a_{22}}$
+\end{center}
+\subsection*{Sistemas mal condicionados}
+%------Diagrama------%
+En este tipo de casos estos sistemas son muy sensibles ante errores nu\'ericos.
+\subsubsection*{N\'umero de condici\'on de una matriz cuadrada}
+\begin{displaymath}
+Cond(A)=\parallel A \parallel \bullet \parallel A^{-1} \parallel
+\end{displaymath}
+Para alguna norma matricial.
+\begin{center}
+$|V|_e=\sqrt{\sum V_i^2}$\\
+$|V|_1=max|V_i|$
+\end{center}
+\begin{itemize}
+\item Norma Eucliniana o Norma de Frobenius\\
+\begin{center}
+$\parallel A \parallel _1 = \sqrt{\sum \sum a_i^2}$
+\end{center}
+\item Norma 1 \'o columna-suma\\
+\begin{center}
+$\parallel A \parallel = max_{1\leq j\leq n}\sum_{i=1}^{n}|a_{ij}|$
+\end{center}
+\item Norma $\infty$ \'o renglon-suma\\
+\begin{center}
+$\parallel A \parallel _{\infty} = max_{1\leq i\leq n}\sum_{j=1}^{n}|a_{ij}|$\end{center}
+\item Norma z \'o norma espectral\\
+Cuando el n\'umero de condici\'on es muy pequeño quiere decir que los sistemas no estan tan mal condicionados y son proporcionakes. 
+\item Condici\'on A \begin{displaymath}
+cond(A)=\frac{\parallel \Delta x \parallel }{\parallel x \parallel}\leq \frac{\parallel \Delta A \parallel }{\parallel A \parallel} 
+\end{displaymath}
+$\Delta x:$ Es el cambio en la soluci\'on $x$ de sistema lineal debido a los errores num\'ericos. \\
+$\Delta A:$ Es el cambio en la matriz del sistema debido a la aritm\'etica inexacta de las computadoras.
+\begin{center}
+$Cond(A)\nsim 1$\\
+$Cond(A)\ggg 1 $
+\end{center}
+\end{itemize} 
