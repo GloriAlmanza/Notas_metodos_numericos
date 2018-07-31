@@ -429,3 +429,78 @@ x_1 \\ x_2 \\ x_3 \\ x_4\\
 x_1 \\ x_2 \\ x_3 \\ x_4
 \end{bmatrix}^k \right)$
 \end{center}
+\begin{displaymath}
+x_1^{k+1}=\frac{1}{a_{11}}[b_1-(a_{12}x_2^k+a_{13}x_3^k+a_{14}x_4^k)]
+\end{displaymath}
+\begin{displaymath}
+x_2^{k+1}=\frac{1}{a_{22}}[b_2-a_{21}x_1^{k+1}-(a_{23}x_3^k+a_{24}x_4^k)]
+\end{displaymath}
+\begin{displaymath}
+x_i^{k+1}=\frac{1}{a_{ii}}(b_i-\sum_{j=1}^{i-1}a_{ij}x_j^{k+1}-\sum_{j=i+1}^{n}a_{ij}x_j^k)
+\end{displaymath}
+\subsubsection*{Condici\'on de convergencia}
+En la mayoria de los casos, si: $|a_{ii}|\gg|a_{ij}|$ en cada regi\'on sin que sea necesario.
+\subsection{M\'etodo de Gauss-Seidel con relajaci\'on (SOR)}
+Es una aplica\'ion de Gauss-Seidel, converge m\'as r\'apido, pero no siempre se cumple, depende del valor de $W$. Donde $W$ es un valor param\'etrico.\\
+Se basa en el m\'etodo de triangulaci\'on $W\in[0,2]$
+\begin{displaymath}
+x^{k+1}=(1-W)x^k+Wx_{GS}^{k+1}
+\end{displaymath}
+*GS hace referencia al metodo Gauus-Seidel simple
+\begin{displaymath}
+x_{i}^{1-W}x_i^k+\frac{W}{a_{ii}}\left[ b_i-\sum_{j=1}^{i-1}a_{ij}x_j^{k+1}-\sum_{j=i+1}^{n}a_{ij}x_j^k\right]
+\end{displaymath}
+La $W$ mas usual es $W=1.5$
+
+\subsection*{Comceptos de Gradientes}
+
+\subsubsection*{Gradiente de un campo escalar}
+Sea $F:U\leq R^3\rightarrow R$ un campo escalar, $g$ sean
+\begin{displaymath}
+\frac{\delta f}{\delta x}; \frac{\delta f}{\delta y}; \frac{\delta f}{\delta z}
+\end{displaymath}
+Las derivadas parciales de $f$ (es decir, derivar respecto a una variable manteniendo las otras como constantes).\\
+Entonces el gradiente conjugado de $f$ es:
+\begin{displaymath}
+grad(f)=\left(\frac{\delta f}{\delta x},\frac{\delta f}{\delta x},\frac{\delta y}{\delta z}\right)
+\end{displaymath}
+
+El gradiente apunta en la direci\'on en la que la derivada direccional de la funci\'on f es m\'axima, y su m\'odulo en un punto es el valor de esta derivada direccional en ese punto. \\
+Se anula en los puntos de inflexi\'on de la funci\'on $f$.\\
+El gradiente convierte en un campo escalar en un campo vectorial.
+
+\subsubsection*{Divergencia de un campo escalar}
+Sea $F:U\leq R^3\rightarrow R^3$, $F=(F_1,F_2,F_3)$ un campo vectorial. Entonces la divergencia de $F$ es:
+\begin{displaymath}
+div(F)=\frac{\delta}{\delta x}F_1+\frac{\delta}{\delta y}F_2+\frac{\delta}{\delta z}F_3
+\end{displaymath}
+La divergencia convierte un campo vectorial en un campo escalar.
+\subsection*{Rotacional de un campo vectorial}
+Sea $F:U\leq R^3\rightarrow R^3$, $F=(F_1,F_2,F_3)$ un campo vectorial. Entonces; el rotacional de $F$ es:
+\begin{displaymath}
+vot(F)=\left(\frac{\delta F_3}{\delta y}-\frac{\delta F_2}{\delta z},\frac{\delta F_1}{\delta z}-\frac{\delta F_3}{\delta x},\frac{\delta F_1}{\delta y} \right)
+\end{displaymath}
+o tambi\'en se puede calcular como el siguiente determinante, (teniendo en cuenta que i,j,k son la coordenada a la que corresponden):
+\begin{displaymath}
+\left| \begin{matrix}
+i & j & k \\
+\frac{\delta}{\delta x} & \frac{\delta}{\delta y} & \frac{\delta}{\delta z} \\
+F_1 & F_2 & F_3
+
+\end{matrix} \right|
+\end{displaymath}
+
+\subsubsection*{Propiedades del gradiente, divergencia y rotacional}
+\begin{enumerate}
+\item $rot(grad(F))=0$
+\item $div(rot(F)=(grad(f)xF+f.rot(F))=0$
+\item $rot(f.F)=$
+\item $div(f.F)=f.div(F)+grad(f).F$
+\end{enumerate}
+
+\subsection*{Valores m\'aximos y m\'inimos}
+Una funci\'on de dos variables tiene un m\'aximo relativo en $(a,b)$ si $f(x,y)\leq f(a,b)$ cuando $(x,y)$ esta cerca de $(a,b)$. El n\'umero $f(a,b)$ recibe el nombre de valor m\'aximo relativo. Si $f(x,y)\leg f(a,b)$ cuando $(x,y)$ est\\'a cerca de $(a,b)$, entonces $f(a,b)$ es un m\'inimo relativo en $(a,b)$ y $f(a,b)$ es un valor m\'aximo relativo.\\
+Si lo anterior se cumple para todos los puntos $(x,y)$ en el dominio de $f$, entonces $f$ tiene un m\'aximo absoluto o un m\'aximo absoluto en $(a,b)$\smallskip 
+Teorema\\
+Si $f$ tiene un m\'aximo o un m\'aximo relativo en $(a,b)$ y las derivadas parciales de primer orden existen all\'i, entonces $Fx(a,b)=0$ y $Fy(a,b)=0$.\\
+Un punto $(a,b)$ se llama punto cr\\itico de f
