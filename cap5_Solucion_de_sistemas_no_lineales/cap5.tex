@@ -1,1 +1,48 @@
 \chapter{Soluci\'on de sistemas no lineales}
+En este cap\'itulo veremos el modo de soluci\'on de los sistemas no lineales, que son aquellos en los que por lo menos una de sus ecuaciones no es lineal(hay un grado mayor que uno), o bien hay funciones compuestas.\\
+%ilustraciones de graficas y resorte%
+$u=kF$\\
+$u=k(u,F)$\\
+\begin{displaymath}
+f_1(x_1,x_2,x_3,x_4,\cdots, x_n)=0
+\end{displaymath}
+\begin{displaymath}
+f_2(x_1,x_2,x_3,x_4,\cdots, x_n)=0
+\end{displaymath}
+\begin{displaymath}
+f_3(x_1,x_2,x_3,x_4,\cdots, x_n)=0
+\end{displaymath}
+\begin{center}
+$\vdots$
+\end{center}
+\begin{displaymath}
+f_n(x_1,x_2,x_3,x_4,\cdots, x_n)=0
+\end{displaymath}
+\begin{displaymath}
+F=\begin{bmatrix}
+f_1(x)\\
+f_2(x)\\
+f_3(x)\\
+\vdots \\
+f_n(x)
+\end{bmatrix}; \qquad x=\begin{bmatrix}
+x_1\\
+x_2\\
+x_3\\
+\vdots \\
+x_n
+\end{bmatrix}
+\end{displaymath}
+$F(x)=0; \qquad f(x)=0$\\
+\begin{displaymath}
+F(x^{k+1})=F(x^k)+F'(x^k)(x^{k+1}-x^k)\mid +F'(x^k)\frac{(x^{k+1}-x^k)^2}{2!}
+\end{displaymath}
+$0=F(x^k)+F'(x^k)(x^{k+1}-x^k)$\\
+\begin{center}
+Matriz Jacobiana del sistema
+\end{center}
+\begin{displaymath}
+F'(x)=\begin{bmatrix}
+\nabla f_1(x)^T \\
+\end{bmatrix}
+\end{displaymath}
