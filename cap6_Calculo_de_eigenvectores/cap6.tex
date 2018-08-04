@@ -32,7 +32,8 @@ $(A-\lambda I)V=0\rightarrow$ Sistema lineal homogeneo tiene una soluci\'on triv
 Para que $V\leq 0$
 \begin{center}
 $det(A-\lambda I)=0$\\ecuaci\'on polin\'omica de grado n.
-\end{center} \\
+\end{center} 
+
 \begin{displaymath}
 \begin{bmatrix}
 a_{11} & a_{12} \\
@@ -49,6 +50,103 @@ a_{11}-\lambda & a_{12} \\
 a_{21} & a_{22}-\lambda
 \end{matrix}\right| =0
 \end{displaymath}
+\\
+\begin{center}
+$(a_{11}-\lambda)(a_{22}-\lambda)-a_{21}a_{12}=0$\\
+$\lambda ^2-(a_{11}+a_{22})\lambda +a_{11}a_{22}-a_{11}a_{22}-a_{11}a_{12}=0$\\
+\end{center}
+\begin{displaymath}
+\lambda =\frac{a_{11}+a_{22}\pm\sqrt{(a_{11}+a_{22})^2-4(a_{11}a_{22}-a_{21}a_{12})}}{2}
+\end{displaymath}
+\begin{displaymath}
+-\frac{a_{21}}{a_{11}\lambda}\begin{bmatrix}
+a_{11}-\lambda_1 & a_{12} \\
+a_{21} & a_{22}\lambda_2
+\end{bmatrix}\begin{bmatrix}
+x\\y
+\end{bmatrix}=\begin{bmatrix}
+0 \\ 0
+\end{bmatrix}
+\end{displaymath}
 
+\begin{displaymath}\begin{bmatrix}
+a_{11}-\lambda_1 & a_{12} \\
+0 & 0
+\end{bmatrix}\begin{bmatrix}
+x\\y
+\end{bmatrix}=\begin{bmatrix}
+0 \\ 0
+\end{bmatrix}
+\end{displaymath}
+\begin{displaymath}
+v_1=\begin{bmatrix}
+-\frac{a_{12}y}{a_{11}-\lambda_1} \\
+y
+\end{bmatrix} \qquad v_2=\begin{bmatrix}
+-\frac{a_{12}y}{a_{11}-\lambda_2} \\
+y
+\end{bmatrix}
+\end{displaymath}
+\subsection*{Propiedades}
+\begin{itemize}
+\item Los eigenvectores son linealmente independientes
+\item Los igenvectores no son \'unicos, pero sus direcciones si lo son.
+\item Si a es sim\'etrico, todos los eigenvectores son reales.
+\item El rango de una matriz esta relacionado con el n\'umero de eigenvectores nulos
+\end{itemize}
+\section{M\'etodo de la potencia}
+\subsection*{Hipotesis fundamental:}
+Los eigenvalores de $A$, se pueden ordenar por valor absoluto en la forma
+\begin{displaymath}
+|\lambda_1|>|\lambda_2|\geq |\lambda_3|\geq|\lambda_4|\geq\cdots\geq|\lambda_n|
+\end{displaymath}
 
+Entonces empezando en un vector cualquiera $z_o\leq 0$ se tiene que la secuencia $z_{k+1}=Az_k$ converge a la direcci\'on $v_1$ si $k \to \infty$\\
+\begin{displaymath}
+Calcular \quad v_1=\frac{z_k}{\parallel z_k \parallel}
+\end{displaymath}
+\begin{center}
+$v_1^TAv_1=r_1^T\lambda_1v_1$\\
+$v_1^TAV_1=\lambda_1v_1^TV_1$\\
+$\lambda_1=v_1^TAV_1$
+\end{center}
+Normalizar el vector resultante para obtener resultados aceptables y no haya problema de desbordamientp.
+%---Algoritmo de potencia---%
+
+\section{M\'etodo de iteraci\'on inversa}
+Es un m\'etodo \'util cuando la matriz es simetrica y definida positiva.
+\subsection*{Teorema}
+Si $det(A)\leq 0,\quad A^{-1}$ existe y tiene los misos eigenvectors, corresponde a los de A por 
+\begin{displaymath}
+\frac{1}{\lambda_1},\frac{1}{\lambda_2},\frac{1}{\lambda_3},\cdots,\frac{1}{\lambda_n},
+\end{displaymath}
+%---Algoritmo de iteración inversa---%
+
+\section{T\'ecnica de desplazamiento ("Shifting")}
+Cuando se quieren encontrar los eigenvectores m\'as chiquitos, siempre y cuando la matriz sea definida positiva.\\
+sirve para acelerar la convergencia, con el m\'etodo de la potencia trasladada.\\ 
+$Av=\lambda v$\\
+La matriz $A+\theta I$ tiene los mismos eigenvectores que $A$, y sus eigenvectores son $\theta +\lambda$.
+$(A+\theta I)v=Av+\theta Iv=Av+\theta v$
+\\
+$(A+\theta I)v=Av+\theta Iv=\lambda v+\theta v$\\
+$(A+\theta I)v=(\lambda+\theta)v=(\lambda+\theta)v$
+\section{T\'ecnicas de deflaci\'on}
+Se obtiene una nueva matriz $B$ de manera que contenga los mismos eigenvectores de $A$, pero uno de sus eigenvectores se reemplaza por uncero.
+\begin{center}
+$Bv=\lambda 'v$\\
+$Av=\lambda v$
+\end{center}
+Si $A$ es sim\'etrica, $B$ se obtiene por $B=A-\lambda_1v_1v_1^T$
  
+\section{M\'etodo del polinomio}
+se puede aplicar la t\'ecnica de desplazamiento.
+\begin{displaymath}
+det(A-I\lambda)=0
+\end{displaymath} 
+\begin{center}
+$f(\lambda)=0$\\
+$f(x)=0$\\
+$LU=A$\\
+$det(A)=det(L)det(U)$
+\end{center}
