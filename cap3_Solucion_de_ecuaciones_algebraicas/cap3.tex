@@ -84,7 +84,7 @@ El objetivo de estos m\'etodos es encontrar un vector soluci\'on para una matriz
 \section{Operaciones algebr\'aicas con matrices}
 \subsection{Suma de matrices}
 Es posible sumar dos matrces siempre y cuado sean del mismo tamaño haciendo una adici\'on de sus elementos correspondientes.\\
-S\'i $A=[a_{ij}]$ y $B=[b_{ij}]$ son matrices del mismo tamaño $m \times n$, entonces su suma es la matriz de tamaño $m \times $. \\
+S\'i $A=[a_{ij}]$ y $B=[b_{ij}]$ son matrices del mismo tamaño $m \times n$, entonces su suma es la matriz de tamaño $m \times n$. \\
 \begin{center}
 $A+B=[a_{ij}+b_{ij}]$
 \end{center}
@@ -557,3 +557,157 @@ $Cond(A)\nsim 1$\\
 $Cond(A)\ggg 1 $
 \end{center}
 \end{itemize} 
+\subsection{M\'etodo de Gradiente conjugado}
+\subsubsection{Gradiente conjugado}
+El gradiente se ubica donde la pendiente es m\'as grande (Es decir la direcci\'on en la cu\'al se tienen la m\'axima pendiente). Los puntos cr\'iticos son donde el gradiente es 0.\\
+$z=f(x,g)$\\
+\begin{displaymath}
+\nabla f=\begin{bmatrix}
+\frac{\delta f}{\delta x}
+\frac{\delta f}{\delta y}
+\end{bmatrix}
+\end{displaymath}
+%Diagrama del gradiente%
+$f(x,y)$\\
+$\nabla f=0$\\
+$\nabla ^2f$ \\
+$det(\nabla ^2f)$
+\begin{itemize}
+\item $>0 minimo$
+\item $=0 silla$
+\item $<0 maximo$
+\end{itemize}
+$f'(x)=0$ indica pendiente\\
+$f''(x)$
+\begin{itemize}
+\item $>0 minimo$
+\end{itemize}
+$\nabla f=\begin{bmatrix}
+\frac{\delta f}{\delta x} \\
+\\
+\frac{\delta f}{\delta y} 
+\end{bmatrix} \qquad \nabla ^2f=\begin{bmatrix}
+\frac{\delta ^2f}{\delta x^2} & \frac{\delta ^2f}{\delta x\delta y}\\
+\\
+\frac{\delta ^2f}{\delta y\delta x} & \frac{\delta ^2f}{\delta y^2} 
+\end{bmatrix}_{Matriz Gaussiana} $ 
+\begin{center}
+\begin{displaymath}
+x=\begin{bmatrix}
+x \\ y
+\end{bmatrix}
+\end{displaymath}
+$x^{k+1}= x^k+\alpha_kP_k$\\
+%Diagramita de gráfica%
+Todos estos puntos van a estar detrtminados por $x+\alpha P$, donde $x$ es la posici\'on inicial y $\alpha P$ la distancia al valor inicial\\
+\end{center}
+\subsubsection{An\'alisis del m\'etodo}
+Es un m\'etdo de convergen en "n" iteraciones con aritm\'etica exacta.\\
+$Ax=b$\\
+Si A es sim\'etrica y $det(A)>0$, el problema es equivalente a\\
+\begin{center}
+$min\quad \phi(x)=\frac{1}{2}x^TAx-x^Tb$\\ $\nabla\phi(x)=0$
+\end{center}
+\begin{displaymath}
+\frac{1}{2}\begin{bmatrix}
+x & y \end{bmatrix}\begin{bmatrix}
+a_{11} & a_{12} \\ a_{21} & a_{22}\end{bmatrix}\begin{bmatrix}
+x\\y \end{bmatrix}-\begin{bmatrix}
+x & y \end{bmatrix}\begin{bmatrix}
+b_1 \\ b_2 \end{bmatrix}
+\end{displaymath}
+
+\begin{displaymath}
+\frac{1}{2}\begin{bmatrix}
+x & y \end{bmatrix}\begin{bmatrix}
+a_{11}x & a_{12}y \\ a_{21}x & a_{22}y\end{bmatrix}- xb_1 - yb_2
+\end{displaymath}
+\begin{displaymath}
+\phi(x)=\frac{1}{2}a_{11}x^2+a_{12}xy+\frac{1}{2}a_{22}y^2-xb_1-yb_2
+\end{displaymath}
+\begin{displaymath}
+\frac{\delta\phi}{\delta x}=a_{11}x+a_{12}y-b_1
+\end{displaymath}
+\begin{displaymath}
+\frac{\delta\phi}{\delta y}=a_{21}x+a_{22}y-b_2
+\end{displaymath}
+\begin{displaymath}
+\boxed{\nabla\phi(x)=Ax-d}
+\end{displaymath}
+$x^o$\\
+$x^{k+1}=x^k+\alpha_kP_k$\\
+$f(\alpha)=\phi(x^k+\alpha P)$\\
+$f'(\alpha)=P\cdot\nabla\phi(x^k+\alpha P)=P^T[A(x^k+\alpha P)-b]$\\
+$f'(\alpha)=P^TAx^k+\alpha P^TAP-P^Tb=0$
+\begin{displaymath}
+\alpha=\frac{-P^TAx^k+P^Tb}{P^TAP}=\frac{-P^T(Ax^k-b)}{P^TAP}=\frac{-P^T\nabla\phi(x^k)}{P^TAP}
+\end{displaymath}
+\begin{center}
+$\nabla\phi(x^k)=Ax^k-b$\\
+$x^{k+1}=x^k+\alpha_kP_k$
+\end{center}
+\begin{displaymath}
+\alpha_k=\frac{P_k^T\nabla\phi(x^k)}{P_k^TAP_k}
+\end{displaymath}
+Para una matriz sim\'etrica $A$ con $det(A)\leq 0$, existe un conjunto de $n$ direcciones linealmente independientes que cumplen la siguiente propiedad
+\begin{displaymath}
+P_i^TAP_j\rightarrow\quad =0\quad si\quad i\leq j ;\qquad \leq 0 \quad si\quad i=j
+\end{displaymath}
+y se llaman direcciones conjugadas.
+\begin{displaymath}
+P_k^TA(x^*-x^o=\sigma_oP_o+\sigma_1P_1+\sigma_2P_2+\cdots+\sigma_{n-1}P_{n-1})
+\end{displaymath}
+\begin{displaymath}
+P_k^TA(x^*-x^o)=\sigma_oP_k^TAP_o+\sigma_1P_k^TAP_1+\sigma_2P_k^TAP_2+\sigma_kP_k^TAP_k+\cdots+\sigma_{n-1}P_k^TAP_{n-1}
+\end{displaymath}
+\begin{displaymath}
+P_k^TA(x^*-x^o)=\sigma_kP_k^TAP_k
+\end{displaymath}
+\begin{displaymath}
+\boxed{\sigma_k=\frac{P_kA(x^*-x^o)}{P_k^TAP_k}}
+\end{displaymath}
+\begin{displaymath}
+\nabla\phi(x^k)=Ax^k-b
+\end{displaymath}
+\begin{displaymath}
+x^{k+1}=x^k+\alpha_kP_k
+\end{displaymath}
+\begin{displaymath}
+\alpha_k=\frac{-P_k^T\nabla\phi(x^k)}{P_k^TAP_k}
+\end{displaymath}
+\begin{displaymath}
+P_k^TA(x^k=x^o+\alpha_oP_o+\alpha_1P_1+\alpha_2P_2+\cdots+\alpha_{k-1}P_{k-1})
+\end{displaymath}
+\begin{displaymath}
+P_x^TAx^k=P_kAx^o+\alpha_oP_k^TAP_o+\alpha_1P_k^TAP_1+\cdots+\alpha_{k-1}P_k+AP_{k-1}
+\end{displaymath}
+\begin{displaymath}
+P_k^TAx^k=P_kAx^o
+\end{displaymath}
+\begin{displaymath}
+P_k^TA(x^k-x^o)=0
+\end{displaymath}
+\begin{displaymath}
+\sigma_k=\frac{P_k^T(b-Ax^k)}{P_k^TAP_k}
+\end{displaymath}
+\begin{displaymath}
+\sigma_k=\frac{-P_k^T(Ax^k-b)}{Pk^TAP_k}
+\end{displaymath}
+\\
+\begin{displaymath}
+\sigma_k=\frac{P_k^T(b-Ax^k)}{P_k^TAP_k}-\frac{P_k^T(Ax^k-b)}{P_k^TAP_k}
+\end{displaymath}
+\begin{displaymath}
+P_o=-r_o
+\end{displaymath}
+\begin{displaymath}
+P_{k-1}^TA(P_k=-r_k+B_kP_{k-1})
+\end{displaymath}
+\begin{displaymath}
+P_{k-1}^TAP_k=-P_{k-1}^TAr_k+B_kP_{k-1}^TAP_{k-1}
+\end{displaymath}
+\begin{displaymath}
+B_k=\frac{P_{k-1}^TAr_k}{P_{k-1}^TAP_{k-1}}
+\end{displaymath}
+
+%con apuntes de Nancy completar%
