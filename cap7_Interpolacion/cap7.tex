@@ -94,3 +94,68 @@ Se escoge la posici\'on \'optima de los puntos de integraci\'on para poder asegu
 
 \subsection{Cuadraturas Gaussianas}
 Da la soluci\'on de polinomis P = 2n+1
+%Formulas%
+%Graficas%
+%Graficas%
+
+
+\subsection{Cuadratura de orden 1}
+%Formulas%
+
+\subsection{Cuadratura de orden 2}
+%Formulas%
+
+\subsection{Cuadratura de orden 3}
+%Formulas%
+
+\subsection{Cuadraturas Gaussianas}
+Da la soluci\'on de polinomios P = 2n+1
+
+\section{Integrales M\'ultiples}
+
+\section{F\'ormulas de Newton - Cotes}
+
+\section{Indeterminaciones}
+
+\section{Ecuaciones Diferenciales}
+
+\section{Soluci\'on de sistemas no lineales}
+
+\section{Eigenvalores y eigenvectores}
+Los vectores propios son los vectores no nulos que cuando son transformados por el operador dan lugar a un m\'ultiplo escalar de s\'i mismos, con lo que no cambian su direcci\'on, este escalar se llama eigenvalor. Los eigenvalores son las ra\'ices del polinomio caracter\'istico.
+
+\begin{itemize}
+\item {M\'etodo de la potencia}\\
+\noindent Este m\'etodo puede encontrar el eigenvalor m\'as grande en valor absoluto y su correspondiente eigenvector. No precisan del c\'alculo polin\'omio caracter\'istico
+
+\item {M\'etodo de la potencia inversa}\\
+\noindent C\'alcula el valor propio de m\'odulo m\'inimo y un vector propio asociado. La matriz A debe ser invertible.
+
+\item {M\'etodo de la potencia inversa desplazada}
+\noindent Aproximar un valor propio $\lambda$ y un vector propio asociado a partir de la estimaci\'on %poner lambda con la linea arriba%  
+$\simeq \lambda$
+
+\item {M\'etodo del polinmio}
+\noindent Sensible al desbordamiento, se puede aplicar desplazamiento.
+\end{itemize}
+
+%La siguiente hoja creo que esta desfasada, pero estoy transcribiendo en orden cronologico, necesito preguntar bien el orden%
+
+Interpolaci\'on: Proceso en el cual se calculan valores num\'ericos desconocidos a partir de otros ya conocidos mediante la aplicaci\'on de algoritmos concretos.\\
+Encontrar un valor intermedio entre dos o m\'as puntos base conocidos, los cuales se pueden aproximar mediante polinomios.\\
+
+Interpoaci\'on lineal: Se interpola con l\'ineas rectas entre una serie de puntos ($x_0$, $y_0$). La idea b\'asica es conectar los 2 puntos dados en $x_i$, es decir ($x_0$,$y_0$) y %checar esta parte% 
+($x_1$,$y_1$). 
+La funci\'on interpolante es una l\'inea recta entre los dos puntos. La funci\'on se sustituye por la recta que pasa por los puntos conocidos.\\
+
+M\'inimos cuadrados lineales\\
+M\'inimos cuadrados no lineales\\
+M\'etodo de Gauss Newton: Para funciones no lineales (logaritmos, exponenciales y trigonom\'etricas)\\
+
+Interpolaci\'on polin\'omica: La funci\'on inc\'ognita se sustituye por un polinomio que coincide con aquella en los puntos conocidos.\\
+
+Polinomios de Lagrange: Encontrar una funci\'on polin\'omica que pase por esos n+1 puntos y que tengan el menor grado posible un polinomio que pase por varios puntos determinados se llama polinomio de interpolaci\'on. El polinomio de Lagrange pasan por todos los n+1 puntos dados:\\
+%Poner grafica%
+
+Interpolaci\'on por segmentarias o splines: El t\'ermino spline referencia a una amplia clase de funciones que son utilizadas en aplicaciones que requieren la interpolaci\'on de datos o un suavizado.\\ %checar otro apunte, ultimas 3-4 palabras, no estoy segura de la redaccion% Su construcci\'on consiste en obtener una funci\'on de interpolaci\'on para cada segmento.
+El spline c\'ubico (k=3) es el spline m\'as empleada, debido a que proporciona un ajuste a los puntos tabulados y su c\'alculo no es excesivamente complejo.\\
