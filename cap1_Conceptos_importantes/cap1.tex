@@ -36,7 +36,7 @@ Los componentes electr\'onicos pasivos son elementos que act\'uan como cargas de
 Los componentes electr\'onicos activos son capaces de generar, modificar y amplificar el valor de una se\~nal el\'ectrica.
 
 \begin{itemize}
-\item Diodos: Son aquellos materiales que a temperatura ambiente tienen una resistencia que se halla comprendida entre la de los metales y aislantes.
+\item Diodos: Son aquellos materiales que a temperatura ambiente tienen una resistencia que se halla comprendida entre la de los metales y los aislantes.
 \item Transistores: Dispositivo que regula el flujo de corriente o de tension actuando como un interruptor o amplificador para se\~nales electr\'onicas.
 \item Circuitos integrados: Es una pastilla o chip muy delgado en el que se encuentran una cantidad enorme de dispositivos microelectr\'onicos.
 \end{itemize}
@@ -46,7 +46,7 @@ Representaci\'on de punto flotante
 %----Ilustración de celdas-----%
 \begin{center}
 $a \times 10^b$\\
-$1 \textgreater |a| \geq 0.1$\\
+$0.1 \leq |a| < 1$\\
 exceptuando cuando: $a=0.0b$ \\ 
 \bigskip
 \begin{tabular}{| c | c |}
@@ -62,18 +62,19 @@ long double & 16 bytes\\
 
 \section{Tipos de error y la serie de Taylor}
 \subsection{Error de corte}
-Epsil\'on de la m\'aquina (EPS): El EPS es el n\'umero m\'as pequeño tal que $(1+EPS)\textgreater1$ para la m\'aquina que realiza la suma.
+Epsil\'on de la m\'aquina (EPS): Es el n\'umero m\'as pequeño tal que $(1+EPS)\textgreater1$ para la m\'aquina que realiza la suma.
 El siguiente c\'odigo permite conocer el epsil\'on de tu computadora.
 \medskip
 \begin{verbatim}
 double EPS=1.0;
 int k=0;
-whie((EPS+1.0)>1.0){
+while((EPS+1.0)>1.0){
       EPS/=2.0;
       K++
       }
 EPS*=2.0;
 K--;
+EPS=2^-K
 \end{verbatim}
 
 \subsection{Error de redondeo} 
@@ -82,7 +83,7 @@ P\'erdida de cifras decimales a medida que se aumenta el exponente.
 
 \subsection{Error de truncamiento}
 Teorema de Taylor: Si $f(x)$ es una funci\'on suave en un intervalo abierto $(a,b)$ que contiene a $c$, para un n\'umero $c+h$ contenido en $(a,b)$ \\
-$f(c+h)=f(c)+f'(c)h+f''(c)\frac{h^3}{3!}+f'''(c)\frac{h^3}{3!}+...+f^n(c)\frac{h^n}{n!}$ \\
+$f(c+h)=f(c)+f'(c)h+f''(c)\frac{h^2}{2!}+f'''(c)\frac{h^3}{3!}+...+f^n(c)\frac{h^n}{n!}$ \\
 El hecho de perder cifras debido a limitar el resultado a ciertas decimales es a lo que llamamos error de truncamiento.\\
 
 \subsection{Complejidad algor\'itmica y costo computacional}
@@ -92,9 +93,9 @@ El hecho de perder cifras debido a limitar el resultado a ciertas decimales es a
 \textbf{Tiempo de tendencia a funciones}\\
 \begin{tabular}{| c | c |}
 \hline
-$log(n)$ & \\
+$\log(n)$ & \\
 $n$ & Tiempos lineales \\ 
-$nlog(n)$ & \\
+$n\log(n)$ & \\
 \hline
 $n^2$ & \\
 $n^3$ & Tiempos polin\'omicos \\ 
@@ -114,10 +115,10 @@ Sea $x_k$ una sucesi\'on de valores. Si existe un n\'umero $x^*$ tal que $$\lim\
 La sucesi\'on converge a $x^*$, si eso no ocurre, entonces la sucesi\'on diverge.
 \\ \\ 
 \textbf{Velocidad de convergencia}\\ 
-${x_k}$ converge s $x^*$ \\
+${x_k}$ converge a $x^*$ \\
 \begin{enumerate}
 \item Si existe un $k\geq 1$ a partir del cual se observa que $|x_{k+1}-x^*|\leq C|x_k-x^*|$ donde $C$ es constante entre $(0,1)$ se tiene velocidad de convergencia lineal.
 \item Igual que el anterior pero $|x_{k+1}-x^*|\leq c_k|x_k-x^*|$ con $c_k\exists(0,1)$ y $C_k\to0$ cuando $k\to\infty$, se tiene  velocidad de convergencia lineal.
-\item A partir de la iteraci\'on $k$ se observa que $|x_{k+1}-x^*|\leq C{|x_k-x^*}^P$ donde $C$y $P$ son constantes $C\exists(0,1)$ y $P\geq2$, se tiene convergencia de orden $P$.
+\item A partir de la iteraci\'on $k$ se observa que $|x_{k+1}-x^*|\leq C{|x_k-x^*|}^P$ donde $C$y $P$ son constantes $C\in(0,1)$ y $P\geq2$, se tiene convergencia de orden $P$.
 \end{enumerate}
 

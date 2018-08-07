@@ -1,19 +1,20 @@
 \chapter{Derivadas n\'umericas}
 %-----Concepto básico de derivada númerica y utilidad------%
+\begin{center}
 \begin{eqnarray}
 \nonumber
-\frac{d(f(x))}{dx}=\lim\limits_{\Delta x\to0}\frac{f(x+\Delta x)-f(x)}{\Delta x} \\ 
-\nonumber h\geq\sqrt{EPS}
+\frac{d(f(x))}{dx}=\lim\limits_{\Delta x\to0}\frac{f(x+\Delta x)-f(x)}{\Delta x} \qquad\nonumber h\geq\sqrt{EPS}
 \end{eqnarray}
+\end{center}
 \begin{tabular}{ l }
-$f'(x)\thickapprox \frac{f(x+h)-f(x)}{h}$ \\
  Derivada n\'umerica hacia adelante \\
+$f'(x)\thickapprox \frac{f(x+h)-f(x)}{h}$ \\
 \\
-$f'(x)\thickapprox \frac{f(x)-f(x-h)}{h}$ \\
  Derivada n\'umerica hacia atr\'as \\
+$f'(x)\thickapprox \frac{f(x)-f(x-h)}{h}$ \\
 \\
-$f'(x)\thickapprox \frac{f(x+h)-f(x-h)}{2h}$ \\
  Derivada n\'umerica al centro \\
+$f'(x)\thickapprox \frac{f(x+h)-f(x-h)}{2h}$ \\
 \\
 \end{tabular}
 \\
