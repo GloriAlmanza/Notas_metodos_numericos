@@ -24,21 +24,43 @@ f''(x)=\frac{f'(x+h)-f'(x)}{h}=\frac{\frac{f(x+2h)-f(x+h)}{h}-\frac{f(x+h)-f(x)}
 \end{displaymath} 
 \\De la cual obtenemos la ecuaci\'on para calcular $f''$ hacia adelante\\ \\
 \begin{tabular}{  l  }
-$f''(x)=\frac{f(x+2h)-2f(x+h)+f(x)}{h^2}$ \\
 Segunda derivada n\'umerica hacia adelante \\
+$f''(x)=\frac{f(x+2h)-2f(x+h)+f(x)}{h^2}$ \\
 \\
-$f''(x)=\frac{f(x)-2f(x-h)+f(x-2h)}{h^2}$ \\
 Segunda derivada n\'umerica hacia atr\'as \\
+$f''(x)=\frac{f(x)-2f(x-h)+f(x-2h)}{h^2}$ \\
 \\
-$f''(x)=\frac{f(x+h)-2f(x)+f(x-h)}{h^2}$ \\
 Segunda derivada n\'umerica al centro \\
+$f''(x)=\frac{f(x+h)-2f(x)+f(x-h)}{h^2}$ \\
 \\
 \end{tabular}
 \\
 Para obtener un buen resultado en en el c\'alculo de segundas derivadas num\'ericas es necesario que $h\geq\sqrt[3]{EPS}$ \\ \\ \\
 Ejemplo\\ \\
 C\'alcular la $1^{ra}$ y $2^{da}$ derivada en $x=0.78$ de la funci\'on $3x^2\sin^2x$\\ \\
-Anal\'iticamente \\
-\begin{displaymath}
-u=3x^2\quad v=\sin^2x
-\end{displaymath}
+Para primera derivada
+\begin{enumerate}[a)]
+\item Anal\'iticamente
+$f'(x)=6x\sin^2 x+3x^2 2\sin x \cos x$\\
+$f'(x)=6x\sin^2 x+6x^2\sin x \cos x$\\
+$f'(x)=6(0.78)\sin^2 (0.78)+6(0.78)^2\sin (0.78) \cos (0.78)$\\
+$f'(x)=2.314737086+1.825093628$\\
+$f'(x)=4.139830714$\\
+\item Con derivada hacia adelante y $h=\sqrt{EPS}$\\
+$f'(x)=\frac{f(x+h)-f(x)}{h}$\\
+$f'(x)=\frac{3(0.78+10^{-6})^2\sin^2(0.78+10^{-6})-3(0.78)^2\sin^2(0.78)}{10^{-6}}$\\
+$EPS=10^{-12};$\quad $h=\sqrt{EPS}$\\
+$f'(x)=4.13983689$\\ 
+\item Con derivada hacia atr\'as y $h=EPS$\\
+$f'(x)=\frac{f(x)-f(x-h)}{h}$\\
+$f'(x)=\frac{3(0.78)^2\sin^2(0.78)-3(0.78+10^{-12})^2\sin^2(0.78-10^{-12})}{1x10^{-12}}$\\
+$EPS=10^{-12};$\quad $h=EPS$\\
+$f'(x)=4.136$\\ 
+\item Con derivada central $h=\sqrt[3]{EPS}$
+$f'(x)=\frac{f(x+h)-f(x-h)}{2h}$\\
+$f'(x)=\frac{3(0.78+10^{-4})^2\sin^2(0.78+10^{-4})-3(0.78-10^{-4})^2\sin^2(0.78-10^{-4})}{2x10^{-4}}$\\
+$EPS=10^{-12};$\quad $h=\sqrt[3]{EPS}=1x10^{-4}$\\
+\end{enumerate}
+
+
+
