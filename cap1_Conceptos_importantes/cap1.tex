@@ -42,8 +42,15 @@ Los componentes electr\'onicos activos son capaces de generar, modificar y ampli
 \end{itemize}
 
 \section{Representaci\'on de punto flotante}
-Representaci\'on de punto flotante
-%----Ilustración de celdas-----%
+
+
+%----Ilustración de cadena-----%
+\begin{figure}[h]
+\includegraphics[scale=.16]{cadena-de-bits}
+\centering
+\caption{Cadena de bits.}
+\end{figure}
+
 \begin{center}
 $a \times 10^b$\\
 $0.1 \leq |a| < 1$\\
@@ -60,8 +67,12 @@ long double & 16 bytes\\
 \end{tabular}
 \end{center}
 
-\section{Tipos de error y la serie de Taylor}
+\section{Tipos de error}
+
 \subsection{Error de corte}
+Depende de la m\'aquina, es un error num\'erico,. P\'erdida de cifras significativas cuando sumamos o restamos cantidades con diferente orden de magnitud.\\
+%poner ejemplo%
+
 Epsil\'on de la m\'aquina (EPS): Es el n\'umero m\'as pequeño tal que $(1+EPS)\textgreater1$ para la m\'aquina que realiza la suma.
 El siguiente c\'odigo permite conocer el epsil\'on de tu computadora.
 \medskip
@@ -74,14 +85,23 @@ while((EPS+1.0)>1.0){
       }
 EPS*=2.0;
 K--;
-EPS=2^-K
+printf("Epsilon de la maquina = %f", EPS);
+printf("\n Equivalente a 2^ %d", k);
 \end{verbatim}
 
 \subsection{Error de redondeo} 
 P\'erdida de cifras decimales a medida que se aumenta el exponente.
-%---Ilustración de recta numérica---%
+
+%----Ilustración de recta-----%
+\begin{figure}[h]
+\includegraphics[scale=.16]{recta-error-redondeo}
+\centering
+\caption{Recta que ejemplifica el error de redondeo.}
+\end{figure}
 
 \subsection{Error de truncamiento}
+Son aquellos que resultan al usar una aproximaci\'on en lugar de un procedimiento matem\'atico exacto.\\
+Ejemplo:\\
 Teorema de Taylor: Si $f(x)$ es una funci\'on suave en un intervalo abierto $(a,b)$ que contiene a $c$, para un n\'umero $c+h$ contenido en $(a,b)$ \\
 $f(c+h)=f(c)+f'(c)h+f''(c)\frac{h^2}{2!}+f'''(c)\frac{h^3}{3!}+...+f^n(c)\frac{h^n}{n!}$ \\
 El hecho de perder cifras debido a limitar el resultado a ciertas decimales es a lo que llamamos error de truncamiento.\\
@@ -106,15 +126,34 @@ $n!$ & NP-Cmpleto\\
 \hline
 \end{tabular}
 \end{center}
-%-Ilustracioes de graficas-%
+%-Ilustracion de grafica log-%
+\begin{figure}[h]
+\includegraphics[scale=.16]{grafica-log}
+\centering
+\caption{Gr\'afica que estaba junto a lo de "Tiempo de tendencia de funciones".}
+\end{figure}
+
 \subsection{Convergencia} 
-Un ciclo de c\'alculo se traduce a una iteraci\'on 
+Un ciclo de c\'alculo se traduce a una iteraci\'on. \\
+
 %--Ilustración de iteración--%
-\\
+\begin{figure}[h]
+\includegraphics[scale=.16]{iteracion}
+\centering
+\caption{Iteraci\'on.}
+\end{figure}
+
 Sea $x_k$ una sucesi\'on de valores. Si existe un n\'umero $x^*$ tal que $$\lim\limits_{k\to\infty}x_k=x^*$$ \\
 La sucesi\'on converge a $x^*$, si eso no ocurre, entonces la sucesi\'on diverge.
-\\ \\ 
+\\
 \textbf{Velocidad de convergencia}\\ 
+%--Ilustración de iteración--%
+\begin{figure}[h]
+\includegraphics[scale=.16]{grafica-junto-vel-conv}
+\centering
+\caption{No estoy muy segura de la raz\'on de ser de la gr\'afica, pero estaba a un lado.}
+\end{figure}
+
 ${x_k}$ converge a $x^*$ \\
 \begin{enumerate}
 \item Si existe un $k\geq 1$ a partir del cual se observa que $|x_{k+1}-x^*|\leq C|x_k-x^*|$ donde $C$ es constante entre $(0,1)$ se tiene velocidad de convergencia lineal.
