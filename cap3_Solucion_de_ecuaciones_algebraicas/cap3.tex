@@ -1,21 +1,29 @@
 \chapter{Soluci\'on de ecuaciones algebraicas}
 
 
-Hay ocaciones en las que ecuaciones algebraicas tienen una dificil soluci\'on anal\'itica y en esas cituaciones recurrimos a los m\'etodos num\'ericos que ser\'an descritos en este cap\'itulo, hablaremos de m\'etodos tanto abiertos como cerrados, ventajas y desventajas de los mismos. 
+Hay ocaciones en las que ecuaciones algebraicas tienen una di\'icil soluci\'on anal\'itica y en esas situaciones recurrimos a los m\'etodos num\'ericos que ser\'an descritos en este cap\'itulo, hablaremos de m\'etodos tanto abiertos como cerrados, ventajas y desventajas de los mismos. 
 
 \section{M\'etodos cerrados}
 Tambi\'en llamados metodos de encierro, se basan en limitar con un intervaloque se va recortando hasta que se acerca a la soluci\'on.
 
 \subsection{Bisecci\'on}
 Es un algoritmo de b\'usqueda de ra\'ices que trabaja dividiendo el intervalo a la mitad y seccionando el subintervalo que tiene la ra\'iz, y es posible describirlo en los siguientes pasos.\\
+\begin{center}
 \begin{enumerate}
-\item Se eligen los valores limitantes $a$,  $b$ tales que \\$f(a)f(b)\textless0$.
-\item aproximamos la soluci\'on con la formula del punto medio\\$c=\frac{a+b}{2}$
+\item Se eligen los valores limitantes $a$,  $b$ tales que 
+\begin{displaymath}
+f(a)f(b)\textless0.
+\end{displaymath}
+\item aproximamos la soluci\'on con la formula del punto medio
+\begin{displaymath}
+c=\frac{a+b}{2}
+\end{displaymath}
 \end{enumerate}
+\end{center}
 %-----Gráfica del método de bisección-----%
 %------Algoritmo de bisección-------%
-\subsection{M\'etodo de falsa posici\'on o regula fals}
-Para localizar el punto $c$, se busca la ecuaci\'on de una recta que pasa por los dos puntos de la funci''on lo que se obtiene es una ra\'iz falsa con una recta el presedimiento se muestra descrito en el siguiente algoritmo.
+\subsection{M\'etodo de falsa posici\'on o regula-falsi}
+Para localizar el punto $c$, se busca la ecuaci\'on de una recta que pasa por los dos puntos de la funci\'on lo que se obtiene es una ra\'iz falsa con una recta el presedimiento se muestra descrito en el siguiente algoritmo.
 %----Gráfica del metodo regula fals----%
 %-------Algoritmo de falsa posicón-------% 
 
@@ -235,27 +243,27 @@ L_{ij}=a_{ij}-\sum_{k=1}^{j-1}L_{ik}U_{kj} \qquad U_{ij}=\frac{a_{ij}-\sum_{k=1}
 \end{displaymath}
 \subsubsection{Resultados}
 \begin{multicols}{2}
-$a_{11}=u_{11}$ \\
-$a_{12}=u_{12}$ \\
-$a_{13}=u_{13}$ \\
-$a_{14}=u_{14}$ \\
-$a_{21}=l_{21}u_{11}$ \\
-$l_{21}=\frac{a_{21}}{u_{11}}$ \\
-$u_{22}=l_{21}u_{12}+u_{22}$ \\
-$a_{23}=a_{22}-l_{21}u_{12}$ \\
-$u_{23}=l_{21}u_{13}+u_{23}$ \\
-$a_{31}=l_{31}u_{11}$ \\
-$l_{31}=\frac{a_{31}}{u_{11}}$ \\
-$a_{32}=l_{31}u_{12}+l_{32}u_{22}$ \\
-$l_{32}=a_{32}-\frac{l_{31}u_{12}}{u_{22}}$ \\
-$a_{33}=l_{31}u_{13}+l_{32}u_{23}+u_{33}$ \\
-$u_{33}=a_{33}-(l_{31}u_{13}+l_{32}u_{23})$ \\
-$a_{43}=l_{41}u_{13}+l_{42}u_{23}+l_{43}u_{33}$ \\
-$l_{43}=\frac{a_{43}-(l_{41}u_{13}+l_{42}u_{23})}{u_{33}}$ \\
-$a_{44}=l_{41}u_{14}+l_{42}u_{24}+l_{43}u_{34})$ \\
+\begin{displaymath}a_{11}=u_{11}\end{displaymath}
+\begin{displaymath}a_{12}=u_{12}\end{displaymath}
+\begin{displaymath}a_{13}=u_{13}\end{displaymath}
+\begin{displaymath}a_{14}=u_{14}\end{displaymath}
+\begin{displaymath}a_{21}=l_{21}u_{11}\end{displaymath}
+\begin{displaymath}l_{21}=\frac{a_{21}}{u_{11}}\end{displaymath}
+\begin{displaymath}u_{22}=l_{21}u_{12}+u_{22}\end{displaymath}
+\begin{displaymath}a_{23}=a_{22}-l_{21}u_{12}\end{displaymath}
+\begin{displaymath}u_{23}=l_{21}u_{13}+u_{23}\end{displaymath}
+\begin{displaymath}a_{31}=l_{31}u_{11}\end{displaymath}
+\begin{displaymath}l_{31}=\frac{a_{31}}{u_{11}}\end{displaymath}
+\begin{displaymath}a_{32}=l_{31}u_{12}+l_{32}u_{22}\end{displaymath}
+\begin{displaymath}l_{32}=a_{32}-\frac{l_{31}u_{12}}{u_{22}}\end{displaymath}
+\begin{displaymath}a_{33}=l_{31}u_{13}+l_{32}u_{23}+u_{33}\end{displaymath}
+\begin{displaymath}u_{33}=a_{33}-(l_{31}u_{13}+l_{32}u_{23})\end{displaymath}
+\begin{displaymath}a_{43}=l_{41}u_{13}+l_{42}u_{23}+l_{43}u_{33}\end{displaymath}
+\begin{displaymath}l_{43}=\frac{a_{43}-(l_{41}u_{13}+l_{42}u_{23})}{u_{33}}\end{displaymath}
+\begin{displaymath}a_{44}=l_{41}u_{14}+l_{42}u_{24}+l_{43}u_{34})\end{displaymath}
 \end{multicols}
 \subsection*{A es simetrica}
-$B^TB$, Ca como resultado una matriz sim\'etica. \\
+$B^TB$, Da como resultado una matriz sim\'etica. \\
 $B^TDB$, Siempre da como resultado una matriz sim\'etrica.
 \begin{center}
 $\begin{bmatrix}
@@ -341,7 +349,7 @@ $L_{ij}=\frac{a_{ij}-\sum_{k=1}^{j-1}d_{kk}l_{ik}l_{jk}}{d_{jj}} \qquad d_{ii}=a
 \begin{center}
 $Ax=b=f(x)=0$
 \end{center}
-Estos m\'etodos parten de un vector inicial $x^o$, y la modificaci\'on medianre un esquema repetitivo de c\'alculo hasta llegar a la soluci\'on buscada
+Estos m\'etodos parten de un vector inicial $x^o$, y la modificaci\'on mediante un esquema repetitivo de c\'alculo hasta llegar a la soluci\'on buscada
 \subsection{M\'etodo de punto fijo}
 \begin{center}
 $f(x)=0\qquad \rightarrow \qquad g(x)=x$ \\
