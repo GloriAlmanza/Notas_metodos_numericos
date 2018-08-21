@@ -284,14 +284,12 @@ l_{11} & l_{12} & l_{13} & l_{14} \\
 \end{bmatrix} $
 \end{center}
 \subsection*{Resultados}
-\begin{center}
-$a_{11}=l_{11}^2 \qquad l_{11}=\sqrt{a_{11}}$\\
-$a_{43}=a_{34}=l_{31}l_{41}+l_{32}l_{42}+l_{33}l_{43}$\\
-$l_{43}=\frac{a_{43}-(l_{31}l_{41}+l_{32}l_{42})}{l_{33}}$ \\
-$a_{44}=l_{41}^2+l_{42}^2+l_{43}^2+l_{43}^2+l_{44}^2$ \\
-$l_{44}=\sqrt{a_{44}-l_{41}^2+l_{42}^2+l_{43}} $ \\
-\end{center}
-Los m\'etodos que acontinuación se mencionan, son m\'etodos que como condici\'on tienen que la matriz para resolver, debe ser sim\'etrica.
+\begin{displaymath}a_{11}=l_{11}^2 \qquad l_{11}=\sqrt{a_{11}}\end{displaymath}
+\begin{displaymath}a_{43}=a_{34}=l_{31}l_{41}+l_{32}l_{42}+l_{33}l_{43}\end{displaymath}
+\begin{displaymath}l_{43}=\frac{a_{43}-(l_{31}l_{41}+l_{32}l_{42})}{l_{33}}\end{displaymath}
+\begin{displaymath}a_{44}=l_{41}^2+l_{42}^2+l_{43}^2+l_{43}^2+l_{44}^2\end{displaymath}
+\begin{displaymath}l_{44}=\sqrt{a_{44}-l_{41}^2+l_{42}^2+l_{43}}\end{displaymath}
+Los m\'etodos que a continuaci\'on se mencionan, son m\'etodos que como condici\'on tienen que la matriz para resolver, debe ser sim\'etrica.
 \subsection*{A definida positiva}
 Para que una matriz $A$ sea definida positiva si se cumple que $X^TAX>0$ para cualquier vector $X\neq0$
 \begin{center}
@@ -322,14 +320,14 @@ d_{11} & d_{12} & d_{13} & d_{14} \\
 \end{bmatrix}
 $\end{center}
 \subsection*{Resultados}
-$a_{34}=a_{43}=a_{11}l_{41}l_{31}+d_{22}l_{42}l_{32}+d_{33}l_{43}$ \\
-$l_{43}=\frac{a_{43}-(d_{11}l_{41}l_{31}+d_{22}l_{42}l_{32})}{d_{33}}$ \\
-$a_{44}=d_{11}l_{41}^2+d_{22}l_{42}^2+d_{33}l_{43}^2+d_{44}-(d_{11}l_{41}^2+d_{22}l_{42}^2+d_{33}l_{43}^2)$ \\
+\begin{displaymath}a_{34}=a_{43}=a_{11}l_{41}l_{31}+d_{22}l_{42}l_{32}+d_{33}l_{43}\end{displaymath}
+\begin{displaymath}l_{43}=\frac{a_{43}-(d_{11}l_{41}l_{31}+d_{22}l_{42}l_{32})}{d_{33}}\end{displaymath}
+\begin{displaymath}a_{44}=d_{11}l_{41}^2+d_{22}l_{42}^2+d_{33}l_{43}^2+d_{44}-(d_{11}l_{41}^2+d_{22}l_{42}^2+d_{33}l_{43}^2)\end{displaymath}
 \subsection{Factorizaci\'on LLT Cholesky}
 \begin{center}
 $ A=LL^T$
 \end{center}
-La factorizaci\'on de Cholesky adem\'as de requerir una matriz simetrica, debe ser definida positiva y cabe mensionar que este m\'etodo tiene una soluci\'on \'unica.
+La factorizaci\'on de Cholesky adem\'as de requerir una matriz simetrica, debe ser definida positiva y cabe mencionar que este m\'etodo tiene una soluci\'on \'unica.
 \subsubsection*{Para los que estan en la diagonal}
 \begin{center}
 $L_{ii}=\sqrt{a_{ii}-\sum_{k=1}^{i-1}l_{ik}^2}$
@@ -340,7 +338,7 @@ $L_{ij}=L^T_{ji}=\frac{a_{ij}+\sum_{k=1}^{j-1}l_{ik}l_{jk}}{l_{jj}}$
 \end{center}
 \subsection{Factorizaci\'on LDLT}
 \begin{center}
-$ A=LLD^T $
+$ A=LDL^T $
 \end{center}
 \begin{center}
 $L_{ij}=\frac{a_{ij}-\sum_{k=1}^{j-1}d_{kk}l_{ik}l_{jk}}{d_{jj}} \qquad d_{ii}=a_{ii}-\sum_{k=1}^{i-1}d_{kk}l_{ik}^2$
@@ -349,7 +347,7 @@ $L_{ij}=\frac{a_{ij}-\sum_{k=1}^{j-1}d_{kk}l_{ik}l_{jk}}{d_{jj}} \qquad d_{ii}=a
 \begin{center}
 $Ax=b=f(x)=0$
 \end{center}
-Estos m\'etodos parten de un vector inicial $x^o$, y la modificaci\'on mediante un esquema repetitivo de c\'alculo hasta llegar a la soluci\'on buscada
+Estos m\'etodos parten de un vector inicial $x^o$, y la modificaci\'on mediante un esquema repetitivo de c\'alculo hasta llegar a la soluci\'on buscada.
 \subsection{M\'etodo de punto fijo}
 \begin{center}
 $f(x)=0\qquad \rightarrow \qquad g(x)=x$ \\
@@ -370,7 +368,7 @@ $D^{-1}[Dx=b-(L+U)x]$ \\
 $x=D^{-1}[b-(L+U)x]$ \\
 \end{center}
 \subsection{M\'etodo de Jacobi}
-Es un m\'etodo sencible al orden en que se encuentran acomodadas las ecuaciones. Remplaza el vector hasta que est\'a completo y se necesita que converja r\'apido para poder comparar el rendimiento con un m\'erodo directo.
+Es un m\'etodo sensible al orden en que se encuentran acomodadas las ecuaciones. Remplaza el vector hasta que est\'a completo y se necesita que converja r\'apido para poder comparar el rendimiento con un m\'etodo directo.
 \begin{center}
 $x^o$ \end{center}
 \begin{center}$x^{k+1}=D^{-1}[b-(L+U)x^k]$\end{center}
@@ -398,7 +396,7 @@ x_i^{k+1}=\frac{1}{a_{ii}}(b_i\sum_{j=i+1}^{i-1}a_{ij}k_j^k-\sum _{j=i+1}^na_{ij
 \frac{\parallel x^{k+1}-x^k \parallel}{max(\parallel x^{k+1} \parallel, \parallel x^k \parallel)}>e_1
 \end{displaymath}
 \subsubsection*{Condici\'on de convergencia}
-Es necesario que la matriz $A$ sea diagonalmente dominante, osea qu\'e, en cada rengl\'on de $A$, se debe cumplir que 
+Es necesario que la matriz $A$ sea diagonalmente dominante, \'osea que, en cada rengl\'on de $A$, se debe cumplir que: 
 \begin{displaymath}
 |a_{ii}|\geq \sum_{j=1,j\neq i}^n |a_{ij}| \qquad |a_{ii}|\gg |a_{ij}|
 \end{displaymath}
