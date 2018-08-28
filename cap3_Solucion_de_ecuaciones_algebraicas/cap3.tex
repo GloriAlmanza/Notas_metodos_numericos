@@ -6,6 +6,10 @@ Hay ocaciones en las que ecuaciones algebraicas tienen una di\'icil soluci\'on a
 \section{M\'etodos cerrados}
 Tambi\'en llamados metodos de encierro, se basan en limitar con un intervaloque se va recortando hasta que se acerca a la soluci\'on.
 
+\begin{center}
+\includegraphics[scale=.05]{imagenes/1.jpg}
+\end{center}
+
 \subsection{Bisecci\'on}
 Es un algoritmo de b\'usqueda de ra\'ices que trabaja dividiendo el intervalo a la mitad y seccionando el subintervalo que tiene la ra\'iz, y es posible describirlo en los siguientes pasos.\\
 \begin{center}
@@ -20,11 +24,13 @@ c=\frac{a+b}{2}
 \end{displaymath}
 \end{enumerate}
 \end{center}
-%-----Gráfica del método de bisección-----%
+\begin{center}
+\includegraphics[scale=.05]{imagenes/2.jpg}
+\end{center}
 %------Algoritmo de bisección-------%
 \subsection{M\'etodo de falsa posici\'on o regula-falsi}
 Para localizar el punto $c$, se busca la ecuaci\'on de una recta que pasa por los dos puntos de la funci\'on lo que se obtiene es una ra\'iz falsa con una recta el presedimiento se muestra descrito en el siguiente algoritmo.
-%----Gráfica del metodo regula fals----%
+
 %-------Algoritmo de falsa posicón-------% 
 
 \section{M\'etodos abiertos}
@@ -38,7 +44,9 @@ x_1=x_o-\frac{f(x_1)}{f'(x_1)} \\
 x_2=x_1-\frac{f(x_1)}{f'(x_1)} \\
 \boxed{x_{k+1}=x_k-\frac{f(x_k)}{f'(x_k)}}
 \end{gather}
-%Gráfica del método de Newton Raphson%
+\begin{center}
+\includegraphics[scale=.05]{imagenes/3.jpg}
+\end{center}
 \subsubsection*{C\'alculo de error}
 
 \subsection{M\'etodo Secante}
@@ -48,7 +56,9 @@ Se trata de un m\'etodo donde se traza una recta secante entro los \'ultimos 2 p
 y-f(x_k)=\frac{f(x_k)-f(x_{k-1})}{x_k-x_{k-1}}\\
 \boxed{x_{k+1}=x_k-\frac{f(x_k)}{\frac{f(x_k)-f(x_{k-1})}{x_k-x_{k-1}}}}
 \end{gather}
-%----Grafica de Método de secante y código----%
+\begin{center}
+\includegraphics[scale=.05]{imagenes/4.jpg}
+\end{center}
 \section*{Backtracking}
 Es un m\'etodo de b\'usqueda de soluciones exhaustiva sobre grafos dirigidos a ciclos, el cual se acelera mediante poda de ramas poco prometedoras. Es decir se trata de buscar estados soluci\'on del problema. \\
 \\
@@ -57,7 +67,9 @@ Las condiciones de partida son:
 \item Alcanza la soluci\'on
 \item Se alcanzan todos los estados sde soluci\'on
 \end{enumerate}
-
+\begin{center}
+\includegraphics[scale=.05]{imagenes/5.jpg}
+\end{center}
 
 \section*{Resumen del c\'apitulo}
 Los m\'etodos aqu\'i mostrados son utilizadon para encontrar ra\'ices de funciones y todos llevan al mismo resultado, la gran diferencia esta en el tiempo de computo utilizado para el resultado y la presici\'on de este.\\
@@ -528,7 +540,9 @@ $\frac{a_{11}}{a_{12}}x+y=\frac{b_1}{b_2}$\\
 $\frac{a_{21}}{a_{22}}x+y=\frac{b}{a_{22}}$
 \end{center}
 \subsection*{Sistemas mal condicionados}
-%------Diagrama------%
+\begin{center}
+\includegraphics[scale=.05]{imagenes/6.jpg}
+\end{center}
 En este tipo de casos estos sistemas son muy sensibles ante errores nu\'ericos.
 \subsubsection*{N\'umero de condici\'on de una matriz cuadrada}
 \begin{displaymath}
@@ -715,6 +729,9 @@ P_{k-1}^TAP_k=-P_{k-1}^TAr_k+B_kP_{k-1}^TAP_{k-1}
 \begin{displaymath}
 B_k=\frac{P_{k-1}^TAr_k}{P_{k-1}^TAP_{k-1}}
 \end{displaymath}
+\begin{center}
+\includegraphics[scale=.05]{imagenes/7.jpg}
+\end{center}
 
 \subsubsection*{Tecnicas de precondicionamiento}
 
@@ -726,6 +743,8 @@ $C^{-T}AC^{-1}\hat{x}=C^{-T}b$
 \subsubsection{Gradiente Conjugado con precondicionamiento de Jacobi}
 %Solo el algoritmo%
 \subsection{Gradiente biconjugado}
-%Solo el algoritmo%
+\begin{center}
+\includegraphics[scale=.05]{imagenes/8.jpg}
+\end{center}
 \subsection{Gradiente conjugado cuadrado}
 %solo algoritmo%
